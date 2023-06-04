@@ -1,0 +1,330 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css\styles.css">
+    <%- include("header") -%>
+        <div>
+            <link rel="stylesheet" href="css\styles.css">
+        </div>
+        <div class="box" id="heading">
+            <h1>
+                <%= listTitle %>
+            </h1>
+        </div>
+
+</head>
+
+<body>
+    <!-- box  -->
+
+    <div class="shadow grid-container">
+        <div class="first-row gridItem1">
+            <!-- net disposable income -->
+            <div class="netDisposableIncome div-left">
+                <div class="netDisposableIncomeHeading">
+
+                    <h2>Net Disposable Income
+                        <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;">
+
+                    </h2>
+                </div> <!--net disposable income heading ends -->
+                <div class="netDisposableIncomeValue headingMoney">
+                    <!-- // i want to take the user input for the net disposable income and store it in our mongoose database   -->
+                    <form> <input type="number" /></form>
+
+                    <p>0</p>
+                </div> <!--net disposable income value ends -->
+            </div> <!--net disposable income ends -->
+
+            <!--  -->
+
+            <!-- total income -->
+            <div class="totalExpenditure div-right">
+
+                <div class="totalExpenditureHeading">
+                    <h2>Total Expenditure </h2>
+                </div> <!--totalExpenditureHeading ends -->
+
+                <div class="totalExpenditureValue headingMoney">
+                    <p>0</p>
+                </div> <!--totalExpenditureValue ends -->
+
+            </div> <!--totalExpenditure ends -->
+        </div>
+
+        <!-- progress bar starts  -->
+
+        <div class="second-row gridItem2">
+
+
+
+
+
+            <div class="skill">
+
+                <div class="outer">
+                    <div class="inner">
+
+                        <div id="number">
+                            Budget spent 65%
+                        </div> <!-- number ends -->
+
+                    </div><!-- inner ends -->
+                </div><!-- outer ends -->
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                    <defs>
+
+                        yellow to orange
+                        <linearGradient id="GradientColor">
+                            <stop offset="0%" stop-color="#F32013" />
+                            <stop offset="100%" stop-color="#F0D500" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                </svg>
+
+            </div> <!-- skill ends  -->
+        </div> <!-- progress bar ends-->
+
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+<!-------------------------------------------------------------- horizontal rule------------------------------------------------------------ -->
+
+        <div class="third-row gridItem3">
+            <div class="grid-container2">
+                <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
+                    <div class="totalBudget textSummary">
+                        Total Budget
+                        <img src="images\editButton.png" alt="info" class="infoIcon" style="height:16px;width:16px;">
+                    </div> <!-- total budget ends -->
+                    <div class="budgetValue blueText">
+                        Rs.
+                        <span id="budgetAmountDisplay">
+                            -
+                        </span>
+
+                    </div><!--  budget  value ends -->
+                </div>
+
+                <!-- itemB1 ends -->
+
+
+                <!---------------------------------------------------------------------------------------------------------------->
+                <div class="itemB2" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
+
+                    <div class="ProvisionalBalance textSummary">
+                        ProvisionalBalance
+                    </div> <!-- ProvisionalBalance  ends -->
+                    <div class="ProvisionalBalanceValue blueText">
+                        Rs. 0
+                    </div><!--  ProvisionalBalanceValue ends -->
+
+                </div>
+                <!-- itemB2 ends -->
+
+
+
+
+                <div class="itemB3">
+                    <div class="RemainingToSpent textSummary">
+                        RemainingToSpent
+                    </div> <!-- RemainingToSpent  ends -->
+                    <div class="RemainToSpentValue blueText">
+                        Rs. 0
+                    </div><!--  RemainToSpentValue ends -->
+                </div> <!-- itemB3 ends -->
+
+
+            </div><!-- grid-container2 ends -->
+
+        </div><!-- third-row ends -->
+
+
+    </div><!-- shadow ends -->
+
+
+    <!-------------------------------------------------------------------------------------------->
+    <!-- <div class="firstBox">
+    </div> <!-first box ends->
+
+    </div> -->
+
+    <div class="shadow">
+        <!-- ahiya avse database  -->
+        <div class="ExpenseListHeading">
+            <!-- contenteditable="true" -->
+            <h2 style="margin-top:0.15rem;font-size: 2rem;"> Expense list </h2>
+        </div>
+
+        <div class="expenseContainer">
+
+            <!-- display the pehla na expenses -->
+            <!-- this route is for deleting the items  -->
+
+            <!-- --------------------------------------------------------- -->
+            <div class="expenseContainerItem1">
+
+                <ul>
+                    <li>
+                        <div class="row">
+
+                            <form action="/" method="post">
+
+                                <div class="column">
+                                    <input type="text" name="Description" placeholder="Description " required
+                                        autocomplete="off" class="leftOfExpense">
+                                    <!-- <input type="text" name="Category " placeholder="Description " required autocomplete="off"> -->
+                                </div>
+
+                                <div class="column" style="margin-top:2rem">
+
+                                    <input type="date" name="DateOfTransaction" value="<%= listTitle %>"
+                                        autocomplete="off" class="rightOfExpense"
+                                        style="margin-left:4.5rem;padding-left:0.625rem;margin-top:2.5rem;font-size:150%;">
+                                </div>
+
+                                <div class="column">
+                                    <select name="Category" id="Category"
+                                        style="margin-left:4.5rem;padding-left:0.625rem;margin-top:2rem;font-size:150%;">
+                                        <option value="Food">Food</option>
+                                        <option value="Travel">Travel</option>
+                                        <option value="Groceries">Groceries</option>
+                                    </select>
+                                </div>
+                                <div class="column">
+                                    <input type="number" name="Amount" placeholder="Amount" autocomplete="off" required
+                                        class="rightOfExpense" id="DOT"
+                                        style="margin-left:1.8rem;padding-left:0.625rem;margin-top:2rem;font-size:180%;padding-right: 0rem;width:90%;padding-bottom: 1px;">
+                                </div>
+                                <div class="column">
+                                    <button type="submit" name="list"
+                                        style="margin-left:4.5rem;padding-left:0.625rem;margin-top:2rem;font-size:150%;margin-right: 1rem;">+</button>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+            </div>
+            <!----------------------------------------------------------------------------------------------------------------------------------- -->
+            <div class="expenseContainerItem2">
+                <!-- graph representing the total expenses -->
+                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga optio, earum eaque odio assumenda libero officia laboriosam voluptatibus ducimus. Quod nam temporibus unde quo harum impedit, excepturi nobis consectetur laborum. Suscipit totam error temporibus est. Soluta necessitatibus porro, eaque sunt, modi autem cum quas omnis dolore maxime sit libero non ratione nesciunt ea excepturi veritatis inventore, accusamus sapiente sequi velit nam nulla aliquid a! Consequuntur nostrum rerum totam repellat magnam corporis iure, dolores reiciendis sunt ratione commodi. Cum quisquam sequi amet quos corporis quaerat, exercitationem nesciunt perspiciatis saepe ducimus dicta ea accusantium dolorem eos deserunt impedit harum facilis officia numquam eum incidunt in at. Nobis consectetur repellat dolore delectus at debitis qui doloribus dolorem iste explicabo hic, facere architecto culpa eius aut soluta provident illo quaerat maxime cupiditate error illum pariatur modi ipsum. Voluptatibus molestias esse sequi unde beatae animi quisquam at fuga fugiat, libero sunt hic provident cumque vero! Accusamus ex sequi architecto quae quisquam. Non expedita at, suscipit voluptatem totam tenetur incidunt nisi corrupti possimus repellendus magni distinctio! Deleniti similique odio quia porro corrupti earum perferendis animi atque ad molestias accusantium repudiandae facilis autem veniam voluptatibus eaque maxime expedita reiciendis fugit minima aperiam, natus aut soluta. Sit, error magni quia quam assumenda hic earum labore nihil, explicabo porro itaque, magnam quos reprehenderit perspiciatis vero ea fugiat quisquam. Iure voluptate voluptates quis eum aliquam exercitationem illo, inventore, doloremque id tempore aperiam, facilis consequuntur nobis delectus libero vero ut esse! Cum saepe praesentium ratione deserunt iusto esse voluptates quas accusantium perferendis porro aspernatur quaerat nobis, dignissimos vero dolorem, quam repellendus atque beatae ea voluptatibus ipsam! Quia cupiditate amet doloribus blanditiis, incidunt quisquam tempore debitis suscipit, nesciunt eveniet itaque, modi fuga magnam porro possimus. Corporis amet quaerat est, earum quasi, excepturi debitis consectetur pariatur voluptatibus accusantium qui maiores itaque saepe dolor doloremque veritatis libero voluptate possimus distinctio, aperiam voluptates velit. Aperiam aspernatur doloribus cupiditate dolor, molestiae tenetur quibusdam libero est neque omnis deserunt similique delectus iste incidunt nihil dicta dignissimos laudantium. Nobis asperiores iste ad in quia nesciunt placeat eum iure laborum modi quasi autem earum consequatur exercitationem quae dolores, iusto, itaque quos commodi facilis sed ex, quis quam. Aperiam est beatae illum nostrum. Accusamus, accusantium? Sed nihil temporibus quas adipisci voluptas nulla? Veniam sed, accusamus perspiciatis illo quaerat dolore omnis, alias odit sequi unde delectus dicta voluptatibus ab est. Ullam assumenda, nisi delectus perferendis officiis veniam quod sit vel vitae! -->
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div><!-- shadow ends -->
+
+    <!-- to show the items  -->
+
+    <div class="box">
+        <% for(let i=0;i<newListItems.length;i++){ %>
+            <div class="item">
+                <form action="/delete" method="post">
+                    <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>"
+                        onChange="this.form.submit()"></input>
+                    <p>
+                        <%= newListItems[i].description %>
+                    </p>
+                    <p>  <%= newListItems[i].createdAt %></p>
+                    <input type="hidden" name="listName" value="<%= listTitle %>">
+                </form>
+            </div>
+            <% } %>
+    </div>
+
+
+
+    <!-- 318.3 -->
+    <!-- this route is for deleting the items  -->
+    <!-- never uncoment this  -->
+    <!-- <div class="helloooooo">
+        <div class="boxInsert box">
+            <% newListItems.forEach(item=> { %>
+                now even if we need to delete the data -> if we click on the checkbox it should be wiped off
+                <form action="/delete" method="post">
+                    <input class="item">
+                   currently we don't have any submittting button so we cannot see what is there in the console log
+                    terminal 
+
+                    <input type="checkbox" name="checkbox" value="<%= item._id%>" onChange="this.form.submit()"></input>
+                    <p>
+                        <%= item.name %>
+                    </p>
+
+                    <input type="hidden" name="listName" value="<%= listTitle %>">
+        </div> -->
+    <!-- item ends -->
+    <!-- </form><! form ends 
+
+
+            <% }); %>
+    </div><! box ends ->
+</div> -->
+
+    <!------------------------------------------------------>
+    <!-- this route is for adding  the items  -->
+    <!--  -->
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function getBudgetAmount() {
+            var budgetAmount = 0;
+            budgetAmount = prompt("Please Enter your Budget Amount");
+            // budgetAmount = document.getElementById("budgetAmount").value;
+            return budgetAmount;
+        }
+        function displayBudgetAmount(budgetAmount) {
+            var displayElement = document.getElementById("budgetAmountDisplay");
+            displayElement.textContent = budgetAmount;
+        }
+
+
+        // <script> -->
+        // <!-- script-->
+
+        let number = document.getElementById("number");
+        let counter = 0;
+        setInterval(() => {
+            if (counter == 65) {
+                clearInterval();
+            }
+            else {
+                counter += 1;
+                number.innerHTML = counter + "%";
+            }
+        }, 30);
+    </script>
+
+
+
+    <footer> <%- include("footer") -%></footer>
+</body>
+
+</html>

@@ -19,6 +19,11 @@ const signUp = async (req, res) => {
     lastName,
     email,
     hash_password,
+    balance: 0,
+    budget: 0,
+    expenditure: 0,
+    provisionalBalance: 0,
+    remainingToSpend: 0,
   };
 
   const user = await User.findOne({ email });
