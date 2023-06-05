@@ -153,7 +153,7 @@
         <!-- ahiya avse database  -->
         <div class="ExpenseListHeading">
             <!-- contenteditable="true" -->
-            <h2 style="margin-top:0.15rem;font-size: 2rem;"> Expense list </h2>
+            <h2 class="orangeColorText" style="margin-top:0.15rem;font-size: 2rem;"> Expense list </h2>
         </div>
 
         <div class="expenseContainer">
@@ -234,7 +234,76 @@
     </div><!-- shadow ends -->
 
     <!-- to show the items  -->
+    <div class="shadow"> 
+        <div class="cont ">
 
+            <div class="leftMost  box">
+                <% for(let i=0;i<newListItems.length;i++){ %>
+          
+              <!--      FORM AVSE   -->
+              <form action="/delete" method="post">
+                <!-- <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>"
+                onChange="this.form.submit()"></input> -->
+                <div class="transactionContainer item">
+                  <div class="transactionItems transactionContainerItem1">
+                    <!--         LEFT MOST SIDEE -->
+                    <!--         description -->
+                    <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>" onChange="this.form.submit()"></input>
+                    <%= newListItems[i].description %>
+                  </div>
+          
+                  <div class="transactionItems transactionContainerItem2">
+                    <!--         RIGHT MOST SIDE -->
+                    <ul class="toShowAmtDate">
+                      <li>
+                        <%= newListItems[i].amount %>
+                      </li>
+                      <li class="date">
+                       
+                        <%= newListItems[i].createdAt.getDate() %>
+                        /<%= newListItems[i].createdAt.getMonth() %>/
+                        <%= new Date().getFullYear()%>
+
+
+
+                       <!-- <% if(newListItems[i].createdAt){ %>
+                        <script>
+                            var dt=newListItems[i].createdAt;
+                            var day=dt.getDate();
+                            var month=dt.getMonth()+1;
+                            var year=dt.getFullYear();
+                            day=day<10? "0" +day:day;
+                            month=month<10? "0"+month:month;
+                            var formattedDate=day+"/"+month+"/"+year;
+                              
+                            </script>
+                      <%  } %> -->
+
+                      </li>
+                    </ul>
+          
+                  </div> <!-- ="transactionItems transactionContainerItem2 endss-->
+                </div>
+                <!-- transactionContainer item   -->
+          
+                <input type="hidden" name="listName" value="<%= listTitle %>">
+              </form>
+          
+              <% } %>
+            </div>
+            <!-- leftMost div ends  -->
+          
+            <div class="rightMost">
+              oiuoiu
+              Chart avse
+            </div>
+            <!-- rightMost box ends  -->
+          </div>
+   <!-- cont  ends  -->
+        </div>
+
+
+<!--         
     <div class="box">
         <% for(let i=0;i<newListItems.length;i++){ %>
             <div class="item">
@@ -248,9 +317,12 @@
                     <input type="hidden" name="listName" value="<%= listTitle %>">
                 </form>
             </div>
-            <% } %>
-    </div>
+            <% } %> -->
 
+
+
+    </div>
+</div>
 
 
     <!-- 318.3 -->

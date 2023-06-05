@@ -2,9 +2,26 @@
   --fs-veryLarge:2rem;
   --fs-large:1.5rem;
   --fs-medium:1.25rem;
+
+
+
 }
+/**/
+.orangeColorText {
+  padding:0.625rem;
 
+  background: hsla(20, 88%, 51%, 1);
 
+  background: linear-gradient(45deg, hsla(20, 88%, 51%, 1) 20%, hsla(28, 100%, 57%, 1) 47%, hsla(58, 100%, 63%, 1) 87%, hsla(29, 92%, 52%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(33, 94%, 54%, 1) 100%);
+  
+  background: -moz-linear-gradient(45deg, hsla(20, 88%, 51%, 1) 20%, hsla(28, 100%, 57%, 1) 47%, hsla(58, 100%, 63%, 1) 87%, hsla(29, 92%, 52%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(33, 94%, 54%, 1) 100%);
+  
+  background: -webkit-linear-gradient(45deg, hsla(20, 88%, 51%, 1) 20%, hsla(28, 100%, 57%, 1) 47%, hsla(58, 100%, 63%, 1) 87%, hsla(29, 92%, 52%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(33, 94%, 54%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F05E16", endColorstr="#FF8822", GradientType=1 );
+  
+}
+/**/
 html {
   background-color: #e4e9fd;
   min-height: 62.5rem;
@@ -394,4 +411,57 @@ select:focus{
   font-size: var(--fs-medium);
 }
 
-/**/
+/*****************************************************************************************************************************************/
+
+/*WHILE showing the transactions -> wadu css*/
+.cont {
+  display: grid;
+}
+.toShowAmtDate
+{
+    list-style-type: none;
+}
+
+.transactionContainer {
+  display: grid;
+
+  /*   grid-template-columns: auto auto auto auto; */
+  /*   padding:0.625rem; */
+}
+.leftMost {
+  width: 60%;
+  grid-column-start: 0;
+  grid-column-end: 1;
+}
+.rightMost {
+  width: 40%;
+  /*   grid-column: 2 / span 2; */
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+/* .transactionItems{
+  text-align: center;
+} */
+.transactionContainerItem1 {
+  grid-column-start: 0;
+  grid-column-end: 1;
+  /*   margin-left: 0rem; */
+}
+.transactionContainerItem2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+/*   margin-top:0rem; */
+/*   margin-left:rem; */
+}
+
+/*items ni list nu font */
+.cont {
+  /* font-size: var(--fs-medium); */
+  font-size: 1.25rem;
+}
+.date{
+  text-align: center;
+  margin-right: 0rem;
+  font-size: 1rem;
+  color:grey;
+}
