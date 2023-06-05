@@ -15,14 +15,6 @@ const userSchema = new mongoose.Schema({
      min: 3,
      max: 20,
   },
-//   username: {
-//      type: String,
-//    //   require: true,
-//      trim: true,
-//      unique: true,
-//      lowercase: true,
-//      index: true,
-//   },
   email: {
      type: String,
      require: true,
@@ -44,6 +36,31 @@ const userSchema = new mongoose.Schema({
   },
   profilePicture: {
      type: String,
+  },
+  income: {
+     type: Number,
+     require: true,
+     trim: true,
+  },
+  expenditure: {
+   type: Number,
+   require: true,
+   trim: true,
+  },
+  budget: {
+   type: Number,
+   require: true,
+   trim: true,
+  },
+  provisionalBalance: {
+   type: Number,
+   require: true,
+   trim: true,
+  },
+  remainingToSpend: {
+   type: Number,
+   require: true,
+   trim: true,
   },
 },{ timestamps: true });
 //For get fullName from when we get data from database
