@@ -14,7 +14,7 @@ const Expense = require("./src/models/expense");
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }));
 app.use("/api", authRouter);
 
 app.set("view engine", "ejs");
@@ -39,8 +39,7 @@ app.get("/", async function (req, res) {
   }
 });
 
-
-app.post("/delete", async function(req, res){
+app.post("/delete", async function (req, res) {
   const checkedItemId = req.body.checkbox;
 
   await Expense.findByIdAndDelete(checkedItemId)
@@ -63,8 +62,9 @@ app.post("/delete", async function(req, res){
   
 
   try {
-      
-    const expenses = await Expense.find({ personId: "647b10038ddb90b857b504b2" });
+    const expenses = await Expense.find({
+      personId: "647b10038ddb90b857b504b2",
+    });
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
     res.render("list", { listTitle: "This Month", newListItems: expenses });
@@ -72,18 +72,16 @@ app.post("/delete", async function(req, res){
     // console.log(err);
     res.status(500).send("error thai 6e...");
   }
-
 });
 
-
 // adding expenses
-app.post("/", async function(req, res){
-
+app.post("/", async function (req, res) {
   const personId = "647b10038ddb90b857b504b2";
   const description = req.body.Description;
   const amount = req.body.Amount;
   const category = req.body.Category;
-  const date = req.body.DateOfTransaction;
+  const dt = req.body.DateOfTransaction;
+ 
 
   
   // let day = dt.getDate();
@@ -97,24 +95,17 @@ app.post("/", async function(req, res){
     personId: personId,
     description: description,
     amount: amount,
-    createdAt: date,
-    category: category
+    createdAt: dt,
+    category: category,
   });
 
 
   await Expense.create(expenseData).then((data, err) => {
     if (err) res.status(StatusCodes.BAD_REQUEST).json({ err });
-    else{
-        // .json({ message: "Expense added Successfully" });
+    else {
+    }
+  });
 
-        // res
-        // .status(StatusCodes.CREATED)
-        // .render("list", { listTitle: "This Month", newListItems: [] });
-        // res
-      }
-    });
-
-  
 
   _expenditure = _expenditure+parseInt(amount);
   _remainingToSpend = _budget-_expenditure;
@@ -135,8 +126,9 @@ app.post("/", async function(req, res){
 
     
   try {
-      
-    const expenses = await Expense.find({ personId: "647b10038ddb90b857b504b2" });
+    const expenses = await Expense.find({
+      personId: "647b10038ddb90b857b504b2",
+    });
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
     res.render("list", { listTitle: "This Month", newListItems: expenses });
@@ -146,50 +138,6 @@ app.post("/", async function(req, res){
   }
 });
 
-
-const signIn = async (req, res) => {
-  console.log(req.body.Email);
-  try {
-    if (!req.body.Email || !req.body.Password) {
-      res.status(StatusCodes.BAD_REQUEST).json({
-        message: "Please enter email and password",
-      });
-    }
-    
-    const user = await User.findOne({ email: req.body.Email });
-    
-    if (user) {
-      bcrypt.compare(req.body.Password, user.hash_password)
-       .then(correct => {
-        if(correct){
-          const token = jwt.sign(
-            { _id: user._id, role: user.role },
-            process.env.JWT_SECRET,
-            { expiresIn: "30d" }
-            );
-          const { _id, firstName, lastName, email, role, fullName } = user;
-          _personId = _id;
-          // res.status(StatusCodes.OK).json({
-          //   token,
-          //   user: { _id, firstName, lastName, email, role, fullName },
-          // });
-        }else{
-          res.status(StatusCodes.UNAUTHORIZED).json({
-            message: "Something went wrong!",
-          });
-        }
-       }).catch(err => {
-           console.log(err)
-       })
-    } else {
-      res.status(StatusCodes.BAD_REQUEST).json({
-        message: "User does not exist..!",
-      });
-    }
-  } catch (error) {
-    res.status(StatusCodes.BAD_REQUEST).json({ error });
-  }
-};
 
 app.post("/homepage", async function (req, res) {
   // const email = req.body.Email;
@@ -206,6 +154,7 @@ app.post("/homepage", async function (req, res) {
     _remainingToSpend = values.remainingToSpend;
 
     const expenses = await Expense.find({ personId: "647b10038ddb90b857b504b2" });
+
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
     res.render("list", { listTitle: "This Month", newListItems: expenses });
@@ -221,10 +170,10 @@ const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
     app.listen(port, () => {
-         console.log(`Server is running on port ${port}`);
+      console.log(`Server is running on port ${port}`);
     });
   } catch (error) {
-      console.log("error =>", error);
+    console.log("error =>", error);
   }
 };
 start();
