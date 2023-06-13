@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 global._personId = "";
+global._firstRender = true
 
 global._income = 2000;
 global._expenditure = 0;
@@ -30,6 +31,7 @@ global._budget = 1000;
 global._provisionalBalance = _income - _budget;
 global._dashOffset=100;
 global._remainingToSpend = _budget - _expenditure;
+global._coins = 400;
 //the above require word to be used here
 // const goalList = {
 //   name: String,
@@ -69,12 +71,13 @@ app.post("/delete", async function (req, res) {
   // });
 
   try {
-    const expenses = await Expense.find({
-      personId: "647b10038ddb90b857b504b2",
-    });
+    // const expenses = await Expense.find({
+    //   personId: "647b10038ddb90b857b504b2",
+    // });
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
-    res.render("list", { listTitle: "This Month", newListItems: expenses, _dashOffset:50 });
+    // res.render("list", { listTitle: "This Month", newListItems: expenses, _dashOffset:50 });
+    res.redirect("/homepage");
   } catch (err) {
     // console.log(err);
     res.status(500).send("error thai 6e...");
@@ -161,12 +164,13 @@ console.log("newDashOffset is : "+newDashOffset);
   }
 
   try {
-    const expenses = await Expense.find({
-      personId: "647b10038ddb90b857b504b2",
-    });
+    // const expenses = await Expense.find({
+    //   personId: "647b10038ddb90b857b504b2",
+    // });
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
-    res.render("list", { listTitle: "This Month", newListItems: expenses, _dashOffset:newDashOffset });
+    res.redirect("/homepage");
+    // res.render("list", { listTitle: "This Month", newListItems: expenses, _dashOffset:newDashOffset });
   } catch (err) {
     console.log(err);
     res.status(500).send("error thai 6e...");
@@ -235,6 +239,32 @@ app.post("/addGoal", async function (req, res) {
   } catch (err) {
     console.log(err);
     res.status(500).send("error ");
+  }
+});
+
+
+app.get("/homepage", async function (req, res) {
+  // console.log("hello ashwani");
+  try {
+    if(_firstRender){
+      const values = await User.findById("647b10038ddb90b857b504b2");
+      _income = values.income;
+      _expenditure = values.expenditure;
+      _budget = values.budget;
+      _provisionalBalance = values.provisionalBalance;
+      _remainingToSpend = values.remainingToSpend;
+
+      _firstRender=false;
+    }
+
+    const expenses = await Expense.find({ personId: "647b10038ddb90b857b504b2" });
+    // console.log(expenses);
+    // find all => find({}) => find all the items in the database-> empty curly braces
+    res.render("list", { listTitle: "This Month", newListItems: expenses });
+    // res.render("store", { count: 5 });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("error thai 6e...");
   }
 });
 

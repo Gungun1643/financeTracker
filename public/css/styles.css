@@ -599,3 +599,18 @@ select:focus {
   font-size: 20px;
   text-align: center;
 }
+
+
+
+#coin-box{
+  text-align: center;
+  margin: auto;
+  border-radius:15px;
+  background-color: #FFB81C;
+  width: 200px;
+  height: 70px;
+  margin-right: 0;
+  font-size: larger;
+  padding-top: 20px;
+  font-weight: 600;
+}
