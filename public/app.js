@@ -1,0 +1,11 @@
+console.log("*******  in the app.js function  *********************** ");
+console.log("expenditure: "+ document.getElementsByClassName("totalExpenditureValue").innerHTML);
+// console.log("remaingToSpent: "+_remainingToSpend);
+// const per= (_remainingToSpend/_budget)*100;
+// console.log("precentage is : "+per);
+// const newDashArray=(per*472)/100;
+// console.log("newDashArray is : "+newDashArray);
+// const newDashOffset=472-newDashArray;
+// console.log("newDashOffset is : "+newDashOffset);
+// var element = document.getElementById("circle");
+// element.style.strokeDashoffset =newDashOffset;

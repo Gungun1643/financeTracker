@@ -1,25 +1,50 @@
-:root{
-  --fs-veryLarge:2rem;
-  --fs-large:1.5rem;
-  --fs-medium:1.25rem;
-
-
-
+:root {
+  --fs-veryLarge: 2rem;
+  --fs-large: 1.5rem;
+  --fs-medium: 1.25rem;
+  --fs-blueColor: #1aa9c4;
+  --dash-offset:0;
 }
 /**/
 .orangeColorText {
-  padding:0.625rem;
+  padding: 0.625rem;
 
   background: hsla(20, 88%, 51%, 1);
 
-  background: linear-gradient(45deg, hsla(20, 88%, 51%, 1) 20%, hsla(28, 100%, 57%, 1) 47%, hsla(58, 100%, 63%, 1) 87%, hsla(29, 92%, 52%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(33, 94%, 54%, 1) 100%);
-  
-  background: -moz-linear-gradient(45deg, hsla(20, 88%, 51%, 1) 20%, hsla(28, 100%, 57%, 1) 47%, hsla(58, 100%, 63%, 1) 87%, hsla(29, 92%, 52%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(33, 94%, 54%, 1) 100%);
-  
-  background: -webkit-linear-gradient(45deg, hsla(20, 88%, 51%, 1) 20%, hsla(28, 100%, 57%, 1) 47%, hsla(58, 100%, 63%, 1) 87%, hsla(29, 92%, 52%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(36, 75%, 77%, 1) 100%, hsla(33, 94%, 54%, 1) 100%);
-  
+  background: linear-gradient(
+    45deg,
+    hsla(20, 88%, 51%, 1) 20%,
+    hsla(28, 100%, 57%, 1) 47%,
+    hsla(58, 100%, 63%, 1) 87%,
+    hsla(29, 92%, 52%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(33, 94%, 54%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(20, 88%, 51%, 1) 20%,
+    hsla(28, 100%, 57%, 1) 47%,
+    hsla(58, 100%, 63%, 1) 87%,
+    hsla(29, 92%, 52%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(33, 94%, 54%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(20, 88%, 51%, 1) 20%,
+    hsla(28, 100%, 57%, 1) 47%,
+    hsla(58, 100%, 63%, 1) 87%,
+    hsla(29, 92%, 52%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(33, 94%, 54%, 1) 100%
+  );
+
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F05E16", endColorstr="#FF8822", GradientType=1 );
-  
 }
 /**/
 html {
@@ -33,15 +58,16 @@ h1 {
   padding: 0.625rem;
   font-size: var(--fs-veryLarge);
 }
-h2{
+h2 {
   font-size: var(--fs-large);
 }
 
 .box {
-  max-width:25rem;
+  max-width: 25rem;
   margin: 3.125rem auto;
   background: white;
   border-radius: 0.3125rem;
+  border-radius: 25px;
   box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
 }
 
@@ -75,7 +101,7 @@ input[type="checkbox"] {
 p {
   margin: 0;
   padding: 1.25rem;
-  font-size:1.25rem;
+  font-size: 1.25rem;
   font-weight: 200;
   color: #00204a;
 }
@@ -85,7 +111,7 @@ form.item {
   margin-left: 1.25rem;
 }
 
-button {
+#addItemBtn {
   min-height: 3.125rem;
   width: 3.125rem;
   border-radius: 50%;
@@ -93,7 +119,7 @@ button {
   background-color: rgb(255, 165, 0);
   color: #fff;
   font-size: 1.875rem;
-  padding-bottom:0.375rem;
+  padding-bottom: 0.375rem;
   border-width: 0;
 }
 
@@ -103,7 +129,7 @@ input[type="text"] {
   top: 0.625rem;
   border: none;
   background: transparent;
-  font-size:1.75rem;
+  font-size: 1.75rem;
 
   /* font-size: 1.25rem; */
   font-weight: 200;
@@ -112,7 +138,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -0.1875rem 0 0  rgb(255, 165, 0);
+  box-shadow: inset 0 -0.1875rem 0 0 rgb(255, 165, 0);
   /* box-shadow: inset 0 -3px 0 0  rgb(255, 165, 0); */
 }
 
@@ -230,12 +256,16 @@ body {
   grid-gap: 1rem;
   padding: 1rem;
 }
+/******************************************************skill chart details ************************************************************/
 
 /* pie chart details */
 .skill {
   /* background-color: yellow; */
   position: relative;
   align-items: center;
+  display: flex;
+  /* width: 10rem;
+  height: 10rem; */
   justify-content: center;
 }
 .outer {
@@ -275,109 +305,113 @@ circle {
   fill: none;
   stroke: url(#GradientColor);
   stroke-width: 1.25rem;
-  stroke-dasharray: 472;
+  /* stroke-dasharray: 472; */
   /* stroke-dashoffset: 200; */
-  stroke-dashoffset: 472;
+  /* stroke-dashoffset: 200; */
   /* circle na andar ketlo color bharavo joie */
   animation: anim 2s linear forwards;
 }
 svg {
   position: absolute;
   top: 0;
-  left:3.5%;
+  left: 3.5%;
   margin-left: 41%;
   justify-content: center;
   align-items: center;
   display: flex;
   justify-content: center;
 }
+#remaining-amount {
+  --dash-offset: attr(data-dash-offset); 
+   /* Set the value using the data attribute  */
+}
+.progress-circle {
+  /* --circle-length: 472; */
+ /* --dash-offset:attr(data-dash-offset); */
+  stroke-dasharray: 472;
+  /* stroke-dashoffset: var(--dash-offset); */
+  /* stroke-dashoffset: var(--dash-offset); */
+  stroke-dashoffset:calc(var(--dash-offset)*5)
+}
 
 /* event for the animmation */
-@keyframes anim {
-  100% {
-    /* change the offset */
-    stroke-dashoffset: 165;
-    /* variable nu name ave  */
-  }
-}
-/**********************************/
+
+/* .progress-circle{
+  existing code
+  stroke-dasharray: 472;
+  stroke-dashoffset: 50;
+  animation: anim 2s linear forwards;
+} */
+/**********************************************************************************/
 /* first box no last portion */
 /*grid container  */
 .grid-container2 {
   display: grid;
   position: relative;
   /* column-gap: 0rem; */
-  row-gap: 2rem; 
+  row-gap: 2rem;
   flex-wrap: wrap;
- 
+
   /* grid-template-columns: auto auto auto auto auto auto; */
   /* gap: 10px; */
   /* background-color: #2196F3; */
   /* padding: 10px; */
 }
-.itemB1
-{
-  grid-row:1;
+.itemB1 {
+  grid-row: 1;
   grid-column: 1;
 }
-.itemB2
-{
-  grid-row:1;
+.itemB2 {
+  grid-row: 1;
   grid-column: 2;
 }
-.itemB3
-{
-  grid-row:1;
+.itemB3 {
+  grid-row: 1;
   grid-column: 3;
 }
-.blueText 
-{
-  color:rgb(7, 221, 199);
+.blueText {
+  color: var(--fs-blueColor);
+  /* color: rgb(7, 221, 199); */
   font-weight: 600;
 }
-.textSummary
-{
+.textSummary {
   font-weight: 600;
 }
 
-h2{
+h2 {
   text-align: center;
 }
 
-
 /* -------------------------------------------------expenseContainer ----------------------------------------------------------*/
-.expenseCotainer
-{
+.expenseCotainer {
   display: flex;
 }
-.expenseContainerItem1
-{
+.expenseContainerItem1 {
   flex: 1;
   /* background-color: red; */
 }
-.leftOfExpense{
+.leftOfExpense {
   /* float: left; */
   padding-left: 0.625rem;
   position: relative;
   display: flexbox;
 }
-.rightOfExpense
-{
+.rightOfExpense {
   /* float: right; */
   display: flexbox;
   /* padding-right: 0.625rem; */
-  padding-left:50%;
+  padding-left: 50%;
   position: relative;
 }
 
 /* Clear floats after the columns */
-.column{
+.column {
   float: left;
   margin-bottom: 0rem;
   position: relative;
   width: 20%;
   /* margin-top:3.0rem; */
- margin-top:2rem;
+  margin-top: 2rem;
 }
 .row:after {
   content: "";
@@ -386,28 +420,26 @@ h2{
 }
 
 /*expenseListHeading*/
-.ExpenseListHeading{
+.ExpenseListHeading {
   margin: 0.5rem;
   font-size: 115%;
 }
 
 /*******************************************************dropDown menu category wise **********************************************************************/
-/* Dropdown Button */                                           
-select{
-  border:none;
+/* Dropdown Button */
+select {
+  border: none;
   padding: 0.625rem 1.25rem;
-  border-radius:0.3125rem;
+  border-radius: 0.3125rem;
   position: relative;
 }
 
-select:focus{
-  outline:none;
+select:focus {
+  outline: none;
 }
 
-
 /*adding the responsive text -> totalBudget, provisionalBalance, remain*/
-.third-row
-{
+.third-row {
   font-size: var(--fs-medium);
 }
 
@@ -417,9 +449,8 @@ select:focus{
 .cont {
   display: grid;
 }
-.toShowAmtDate
-{
-    list-style-type: none;
+.toShowAmtDate {
+  list-style-type: none;
 }
 
 .transactionContainer {
@@ -429,12 +460,12 @@ select:focus{
   /*   padding:0.625rem; */
 }
 .leftMost {
-  width: 60%;
+  width: 80%;
   grid-column-start: 0;
   grid-column-end: 1;
 }
 .rightMost {
-  width: 40%;
+  width: 20%;
   /*   grid-column: 2 / span 2; */
   grid-column-start: 1;
   grid-column-end: 2;
@@ -450,8 +481,8 @@ select:focus{
 .transactionContainerItem2 {
   grid-column-start: 1;
   grid-column-end: 2;
-/*   margin-top:0rem; */
-/*   margin-left:rem; */
+  /*   margin-top:0rem; */
+  /*   margin-left:rem; */
 }
 
 /*items ni list nu font */
@@ -459,9 +490,112 @@ select:focus{
   /* font-size: var(--fs-medium); */
   font-size: 1.25rem;
 }
-.date{
+.date {
   text-align: center;
   margin-right: 0rem;
   font-size: 1rem;
-  color:grey;
+  color: grey;
+}
+
+/******************************grid feature add-gungun *******************************/
+.container3 {
+  /*   display: grid; */
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.a {
+  flex: 50%;
+}
+.b {
+  flex: 50%;
+}
+@media (max-width: 800px) {
+  .container3 {
+    flex-direction: column;
+  }
+}
+.goalItem {
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 2px 5px 0px;
+}
+
+/*to show the items*/
+.output-box {
+  display: flex;
+  margin-left: 1rem;
+}
+.left-section {
+  flex: 50%;
+}
+.right-section {
+  flex: 50%;
+}
+
+.calculatedText {
+  color: red;
+}
+#goal_meet_per {
+  color: red;
+  text-align: center;
+  font-size: 25px;
+}
+.firstClass {
+  border-radius: 25px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 2px 5px 0px;
+  padding-top: 1rem;
+}
+.container3B {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+}
+
+.container3bItem1 {
+  flex: 25%;
+}
+.container3bItem2 {
+  flex: 25%;
+}
+.container3bItem3 {
+  flex: 25%;
+}
+.container3bItem4 {
+  flex: 25%;
+}
+#goalClass {
+  text-align: center;
+  border-radius: 15px;
+}
+.goalTypeSet {
+  box-sizing: border-box;
+  /**/
+  font-size: var(--fs-large);
+}
+#nameOfGoal {
+  all: revert;
+}
+
+#addGoalBtn {
+  min-height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: hsla(20, 88%, 51%, 1);
+  color: #fff;
+  font-size: 1.875rem;
+  padding-bottom: 0.375rem;
+  margin-left: 50%;
+  margin-bottom: 1rem;
+  border-width: 0;
+}
+#nameOfGoal,
+#setGoalValue,
+#goalCategory {
+  height: 50px;
+  width: 90%;
+  font-size: 20px;
+  text-align: center;
 }
