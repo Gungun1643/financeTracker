@@ -1,14 +1,14 @@
 <html>
 
 <head>
-    <title>Calculator</title>
+    <title>Finance Tracker</title>
     <link rel="stylesheet" href="css\styles.css">
     <%- include("header") -%>
         <div>
             <link rel="stylesheet" href="css\styles.css">
         </div>
         <div class="box" id="heading">
-            <h1>
+            <h1 class="orangeColorText">
                 <%= listTitle %>
             </h1>
         </div>
@@ -33,7 +33,9 @@
                     <!-- // i want to take the user input for the net disposable income and store it in our mongoose database   -->
                     <!-- <form> <input type="number" /></form> -->
 
-                    <p><%= _income %></p>
+                    <p>
+                        <%= _income %>
+                    </p>
                 </div> <!--net disposable income value ends -->
             </div> <!--net disposable income ends -->
 
@@ -47,7 +49,9 @@
                 </div> <!--totalExpenditureHeading ends -->
 
                 <div class="totalExpenditureValue headingMoney">
-                    <p><%= _expenditure%></p>
+                    <p>
+                        <%= _expenditure%>
+                    </p>
                 </div> <!--totalExpenditureValue ends -->
 
             </div> <!--totalExpenditure ends -->
@@ -59,20 +63,25 @@
 
 
 
-
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+            <h2>
+                <%= _dashOffset %>
+            </h2>
 
             <div class="skill">
 
                 <div class="outer">
                     <div class="inner">
 
-                        <div id="number">
-                            Budget spent 65%
+                        <div id="number" style="text-align:center">
+                            Remaining To Spent
                         </div> <!-- number ends -->
 
                     </div><!-- inner ends -->
                 </div><!-- outer ends -->
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px"
+                    class="progress-circle" data-dash-offset="<%= _dashOffset %>">
                     <defs>
 
                         yellow to orange
@@ -81,19 +90,24 @@
                             <stop offset="100%" stop-color="#F0D500" />
                         </linearGradient>
                     </defs>
-                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" class="progress-circle"
+                        data-dash-offset="<%= _dashOffset  %>" />
                 </svg>
+
+                <div id="remaining-amount" data-dash-offset="<%= _dashOffset %>"></div>
 
             </div> <!-- skill ends  -->
         </div> <!-- progress bar ends-->
 
         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-<!-------------------------------------------------------------- horizontal rule------------------------------------------------------------ -->
+        <!-------------------------------------------------------------- horizontal rule------------------------------------------------------------ -->
 
         <div class="third-row gridItem3">
             <div class="grid-container2">
                 <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
                     <div class="totalBudget textSummary">
+                        <img src="images\budget.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
+
                         Total Budget
                         <img src="images\editButton.png" alt="info" class="infoIcon" style="height:16px;width:16px;">
                     </div> <!-- total budget ends -->
@@ -127,7 +141,7 @@
 
                 <div class="itemB3">
                     <div class="RemainingToSpent textSummary">
-                        RemainingToSpent
+                        RemainingToSpent ->
                     </div> <!-- RemainingToSpent  ends -->
                     <div class="RemainToSpentValue blueText">
                         Rs. <%= _remainingToSpend %>
@@ -153,7 +167,8 @@
         <!-- ahiya avse database  -->
         <div class="ExpenseListHeading">
             <!-- contenteditable="true" -->
-            <h2 class="orangeColorText" style="margin-top:0.15rem;font-size: 2rem;"> Expense list </h2>
+            <h2 class="orangeColorText" style="margin-top:0.15rem;font-size: 2rem;border-radius: 15px;"> Expense list
+            </h2>
         </div>
 
         <div class="expenseContainer">
@@ -198,22 +213,15 @@
                                 </div>
                                 <div class="column">
                                     <button type="submit" name="list"
-                                        style="margin-left:4.5rem;padding-left:0.625rem;margin-top:2rem;font-size:150%;margin-right: 1rem;">+</button>
+                                        style="margin-left:4.5rem;padding-left:0.625rem;margin-top:2rem;font-size:150%;margin-right: 1rem;"
+                                        id="addItemBtn">+</button>
                                 </div>
                             </form>
                         </div>
                     </li>
                 </ul>
-
-
-
-
-
-
-
-
-
             </div>
+            <!-- expense container item 1 -->
             <!----------------------------------------------------------------------------------------------------------------------------------- -->
             <div class="expenseContainerItem2">
                 <!-- graph representing the total expenses -->
@@ -234,138 +242,158 @@
     </div><!-- shadow ends -->
 
     <!-- to show the items  -->
-    <div class="shadow"> 
+    <div class="shadow">
         <div class="cont ">
 
             <div class="leftMost  box">
                 <% for(let i=0;i<newListItems.length;i++){ %>
-          
-              <!--      FORM AVSE   -->
-              <form action="/delete" method="post">
-                <!-- <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>"
+
+                    <!--      FORM AVSE   -->
+                    <form action="/delete" method="post">
+                        <!-- <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>"
                 onChange="this.form.submit()"></input> -->
-                <div class="transactionContainer item">
-                  <div class="transactionItems transactionContainerItem1">
-                    <!--         LEFT MOST SIDEE -->
-                    <!--         description -->
-                    <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>" onChange="this.form.submit()"></input>
-                    <%= newListItems[i].description %>
-                  </div>
-          
-                  <div class="transactionItems transactionContainerItem2">
-                    <!--         RIGHT MOST SIDE -->
-                    <ul class="toShowAmtDate">
-                      <li>
-                        <%= newListItems[i].amount %>
-                      </li>
-                      <li class="date">
-                       
-                        <%= newListItems[i].createdAt.getDate() %>
-                        /<%= newListItems[i].createdAt.getMonth() %>/
-                        <%= new Date().getFullYear()%>
+                        <div class="transactionContainer item">
+                            <div class="transactionItems transactionContainerItem1">
+                                <!--         LEFT MOST SIDEE -->
+                                <!--         description -->
+                                <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>"
+                                    onChange="this.form.submit()"></input>
+                                <%= newListItems[i].description %>
+                            </div>
 
+                            <div class="transactionItems transactionContainerItem2">
+                                <!--         RIGHT MOST SIDE -->
+                                <ul class="toShowAmtDate">
+                                    <li>
+                                        <%= newListItems[i].amount %>
+                                    </li>
+                                    <li class="date">
 
+                                        <%= newListItems[i].createdAt.getDate() %>
+                                            /<%= newListItems[i].createdAt.getMonth() +1 %>/
+                                                <%= new Date().getFullYear()%>
 
-                       <!-- <% if(newListItems[i].createdAt){ %>
-                        <script>
-                            var dt=newListItems[i].createdAt;
-                            var day=dt.getDate();
-                            var month=dt.getMonth()+1;
-                            var year=dt.getFullYear();
-                            day=day<10? "0" +day:day;
-                            month=month<10? "0"+month:month;
-                            var formattedDate=day+"/"+month+"/"+year;
-                              
-                            </script>
-                      <%  } %> -->
+                                    </li>
+                                </ul>
 
-                      </li>
-                    </ul>
-          
-                  </div> <!-- ="transactionItems transactionContainerItem2 endss-->
-                </div>
-                <!-- transactionContainer item   -->
-          
-                <input type="hidden" name="listName" value="<%= listTitle %>">
-              </form>
-          
-              <% } %>
+                            </div> <!-- ="transactionItems transactionContainerItem2 endss-->
+                        </div>
+                        <!-- transactionContainer item   -->
+
+                        <input type="hidden" name="listName" value="<%= listTitle %>">
+                    </form>
+
+                    <% } %>
             </div>
             <!-- leftMost div ends  -->
-          
+
             <div class="rightMost">
-              oiuoiu
-              Chart avse
+                <img src="images/Donut.png" style="width:40rem;height:25rem;margin-right:0rem;padding-right: 0rem;" />
+
             </div>
             <!-- rightMost box ends  -->
-          </div>
-   <!-- cont  ends  -->
         </div>
+        <!-- cont  ends  -->
+    </div>
+    </div>
+    </div>
+
+    <!-- gungun feature  1 -->
 
 
-<!--         
-    <div class="box">
-        <% for(let i=0;i<newListItems.length;i++){ %>
-            <div class="item">
-                <form action="/delete" method="post">
-                    <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id%>"
-                        onChange="this.form.submit()"></input>
-                    <p>
-                        <%= newListItems[i].description %>
-                    </p>
-                    <p>  <%= newListItems[i].createdAt %></p>
-                    <input type="hidden" name="listName" value="<%= listTitle %>">
-                </form>
+
+
+    <div class="shadow container3 ">
+        <div class="a">
+            <!--     <div class="goalsHeading"> -->
+            <h2 style="padding:2%;text-align:center">
+                Your Dream Goals Plan!!
+            </h2>
+            <!--     </div> -->
+
+            <div class="goalItem">
+                <h2 style="text-align: center;padding: 2%;"> New Car</h2>
+
+                <div class="output-box">
+                    <div class="left-section">
+                        <h3 id="goal_meet_per">0.71%</h3>
+                        <p>of your goal has been met</p>
+                        <p id="you_need_to_invest">You need to invest <span class="calculatedText">444.77 / month
+                            </span></p>
+                    </div>
+                    <!-- leftsection ends  -->
+                    <div class="right-section">
+                        <p>Dream Car Savings Goal : <span class="_calcy calculatedText"
+                                id="retirement_goal_span">5,368</span></p>
+                        <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
+                        </p>
+                        <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">5,330</span>
+                        </p>
+                    </div>
+                    <!-- right section ends  -->
+                </div>
+                <!-- output box ends -->
+
             </div>
-            <% } %> -->
+            <!-- goalItem ends -->
 
+            <!-- a class ends -->
 
+        </div>
+        <!-- </div> -->
+        <div class="b">
+            <div class="bHeading">
+                <h2 class="orangeColorText" id="goalClass" style="padding:2%">
+                    Set a goal
+                </h2>
+            </div>
+            <!-- bHeading ends -->
+            <div class="firstClass">
+                add Goal
+                <form action="/addGoal" method="post">
+                    <div class="container3B">
+                        <div class="container3bItem1">
+                            <select name="goalCategory" id="goalCategory" class="goalTypeSet">
+                                <option value="Property">Property </option>
+                                <option value="Gold">Gold </option>
+                                <option value="Vehicle">Vehicle</option>
+                                <option value="TV">TV</option>
+                            </select>
+                        </div>
+                        <!-- container3bItem1 ends -->
+                        <div class="container3bItem2">
+                            <input type="text" id="nameOfGoal" name="nameOfGoal" required minlength="4" maxlength="20"
+                                placeholder="Name Of Goal" />
+                        </div>
+                        <!-- container3bItem2 ends-->
+                        <div class="container3bItem3">
+                            <input type="number" id="setGoalValue" placeholder="Value" />
+                        </div>
+                        <!--  container3bItem3 ends -->
+                        <!--         <button type="submit" name="goal" id="addGoalBtn">+</button> -->
+
+                    </div>
+                    <!-- container3b ends -->
+                    <div class="button6e">
+                        <button type="submit" name="goal" id="addGoalBtn">+</button>
+                    </div>
+                </form>
+                l;kajdflkajdf
+            </div>
+            <div class="secondClass">
+
+            </div>
+
+        </div>
+        <!-- b ends  -->
 
     </div>
-</div>
 
-
-    <!-- 318.3 -->
-    <!-- this route is for deleting the items  -->
-    <!-- never uncoment this  -->
-    <!-- <div class="helloooooo">
-        <div class="boxInsert box">
-            <% newListItems.forEach(item=> { %>
-                now even if we need to delete the data -> if we click on the checkbox it should be wiped off
-                <form action="/delete" method="post">
-                    <input class="item">
-                   currently we don't have any submittting button so we cannot see what is there in the console log
-                    terminal 
-
-                    <input type="checkbox" name="checkbox" value="<%= item._id%>" onChange="this.form.submit()"></input>
-                    <p>
-                        <%= item.name %>
-                    </p>
-
-                    <input type="hidden" name="listName" value="<%= listTitle %>">
-        </div> -->
-    <!-- item ends -->
-    <!-- </form><! form ends 
-
-
-            <% }); %>
-    </div><! box ends ->
-</div> -->
-
-    <!------------------------------------------------------>
-    <!-- this route is for adding  the items  -->
-    <!--  -->
-
-
-
-
-
-
-
-
+    <!-- gungun feature 1 ends  -->
 
 
     <script>
+
         function getBudgetAmount() {
             var budgetAmount = 0;
             budgetAmount = prompt("Please Enter your Budget Amount");
@@ -380,18 +408,43 @@
 
         // <script> -->
         // <!-- script-->
+        /*progress circle */
+        /**/
+        // function myFunction() {
+        //     console.log("myfunction is calleeeddd");
+        //     const progressCircle = document.getElementsByClassName(".progress-circle");
+        //     const circleLength = progressCircle.getTotalLength;
+        //     console.log(progressCircle);
+        //     console.log(circleLength);
+        //     // calculate the dash offset based on remaining to spend and total income
+        //     const dashOffset = 0;
+        //     console.log(dashOffset);
+        //     progressCircle.style.setProperty('--dash-offset', dashOffset);
 
-        let number = document.getElementById("number");
-        let counter = 0;
-        setInterval(() => {
-            if (counter == 65) {
-                clearInterval();
-            }
-            else {
-                counter += 1;
-                number.innerHTML = counter + "%";
-            }
-        }, 30);
+        // }
+
+        // const myElement = document.querySelector('.progress-circle');
+
+        // myElement.addEventListener('click', function () {
+        //     myFunction();
+        // });
+
+        /**/
+
+        // let number = (dashOffset / 472) * 100;
+        // let counter = 0;
+        // setInterval(() => {
+        //     if (counter === number) {
+        //         clearInterval();
+        //     }
+        //     else {
+        //         counter += 1;
+        //         number.innerHTML = counter + "%";
+        //     }
+        // }, 30);
+
+        /* */
+
     </script>
 
 

@@ -1,0 +1,123 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background-color: #ece9c88a;
+  }
+
+#heading {
+    background-color: rgb(255, 165, 0);
+    text-align: center;
+    left: padding 3.125rem;
+  }
+
+.box {
+    max-width:50%;
+    margin: 60px auto;
+    padding: 20px;
+    /* margin: auto; */
+    /* background: rgba(191, 87, 36, 0.637); */
+    border-radius: 0.3125rem;
+    box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
+  }
+
+
+  
+    .product-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    border-radius:15px;
+    padding: 15px;
+    background-color: rgb(247, 236, 181);
+  }
+  
+  .product-price {
+    color: grey;
+    font-size: 22px;
+  }
+
+  .product-card img {
+    border-radius: 15px;
+  }
+  
+  .product-card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: rgb(255, 165, 0);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius:15px;
+  }
+  
+  .product-card button:hover {
+    opacity: 0.7;
+  }
+
+.collection {
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-auto-flow: dense;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    
+      margin: 60px auto;
+      max-width: 80%;
+  }
+  
+  .product {
+  
+    &__image {
+      background-color: #e5e5e5;
+      display: block;
+      min-height: 200px;
+      width: 100%;
+    }
+    
+    &__name {
+      
+      p {
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+     
+        a {
+          color: #000000;
+          text-decoration: none;
+        }
+      }
+    }
+    
+    &__price {
+  
+      p {
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+    }
+  }
+
+  
+#coin-box{
+    text-align: center;
+    margin: auto;
+    border-radius:15px;
+    background-color: #FFB81C;
+    width: 200px;
+    height: 70px;
+    margin-right: 0;
+    font-size: larger;
+    padding-top: 20px;
+    font-weight: 600;
+  }

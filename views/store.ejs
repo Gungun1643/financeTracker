@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css\store.css">
+    <%- include("header") -%>
+        <div>
+            <link rel="stylesheet" href="css\store.css">
+        </div>
+        <div class="box" id="heading">
+            <h1>
+                Welcome to the store
+            </h1>
+        </div>
+
+</head>
+
+<body>
+    <div id="coin-box">
+        Your Coins: 
+        <img src="images\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
+        <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
+        <%= _coins %>
+    </div>
+    <script>
+      const coin = document.getElementById("coin-box")
+
+      coin.addEventListener("click", () => {
+          console.log("clicked");
+          // count++;       
+
+        var inputnon = document.createElement("input");
+        inputnon.type ="radio";
+        inputnon.id= "selection_non";
+        inputnon.name="selection";
+        inputnon.value="non";
+        document.getElementsByClassName("collection")[0].appendChild(inputnon);
+      })
+    </script>
+    <div class="collection">
+    <!-- Imagine a loop produced this... -->
+
+    <!-- <div class="product-card">
+        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
+        <br></br>
+        <h1>Gun Buddy</h1>
+        <p class="product-price">40 coins</p>
+        <br></br>
+        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
+        <br></br>
+        <p><button>Buy now</button></p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
+        <br></br>
+        <h1>Gun Buddy</h1>
+        <p class="product-price">40 coins</p>
+        <br></br>
+        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
+        <br></br>
+        <p><button>Buy now</button></p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
+        <br></br>
+        <h1>Gun Buddy</h1>
+        <p class="product-price">40 coins</p>
+        <br></br>
+        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
+        <br></br>
+        <p><button>Buy now</button></p>
+      </div>
+
+      <div class="product-card">
+        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
+        <br></br>
+        <h1>Gun Buddy</h1>
+        <p class="product-price">40 coins</p>
+        <br></br>
+        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
+        <br></br>
+        <p><button>Buy now</button></p>
+      </div>
+
+
+      <div class="product-card">
+        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
+        <br></br>
+        <h1>Gun Buddy</h1>
+        <p class="product-price">40 coins</p>
+        <br></br>
+        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
+        <br></br>
+        <p><button>Buy now</button></p>
+      </div> -->
+      <% for(var i=0;i<count;i++){ %>
+        <div class="product-card">
+            <img src="images/product"+i+".jpg" alt="Denim Jeans" style="width:100%">
+            <br></br>
+            <h1>Gun Buddy</h1>
+            <p class="product-price">40 coins</p>
+            <br></br>
+            <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
+            <br></br>
+            <p><button>Buy now</button></p>
+        </div>
+      <% } %>
+  </div>
+  <script src="js\store.js"></script>
+</body>
+</html>
