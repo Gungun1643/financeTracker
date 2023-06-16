@@ -18,11 +18,14 @@
 <body>
     <!-- box  -->
     
-    <div id="coin-box">
+    <div id="coin-box" class="orangeColorText">
         Your Coins: 
-        <img src="images\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
+        <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
         <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
-        <%= _coins %>
+        <div>
+            <%= _coins %>
+        </div>
+
     </div>
 
     <div class="shadow grid-container">
@@ -31,7 +34,10 @@
             <div class="netDisposableIncome div-left">
                 <div class="netDisposableIncomeHeading">
 
-                    <h2>Net Disposable Income
+                    <h2>
+                        <img src="images\homePage\incm.png" alt="coin" class="infoIcon" style="height:2.75rem;width:2.75rem;">
+
+                        Net Disposable Income
                         <!-- <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;"> -->
 
                     </h2>
@@ -40,7 +46,7 @@
                     <!-- // i want to take the user input for the net disposable income and store it in our mongoose database   -->
                     <!-- <form> <input type="number" /></form> -->
 
-                    <p>
+                    <p style="text-align: center;">
                         <%= _income %>
                     </p>
                 </div> <!--net disposable income value ends -->
@@ -52,11 +58,15 @@
             <div class="totalExpenditure div-right">
 
                 <div class="totalExpenditureHeading">
-                    <h2>Total Expenditure </h2>
+
+                    <h2>
+                        <img src="\images\homePage\expns.png" alt="coin" class="infoIcon" style="height:2.5rem;width:2.5rem;">
+
+                        Total Expenditure </h2>
                 </div> <!--totalExpenditureHeading ends -->
 
                 <div class="totalExpenditureValue headingMoney">
-                    <p>
+                    <p style="text-align: center;">
                         <%= _expenditure%>
                     </p>
                 </div> <!--totalExpenditureValue ends -->
@@ -79,7 +89,7 @@
 
                 <div class="outer">
                     <div class="inner">
-
+                     
                         <div id="number" style="text-align:center">
                             Remaining To Spent
                         </div> <!-- number ends -->
@@ -113,10 +123,9 @@
             <div class="grid-container2">
                 <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
                     <div class="totalBudget textSummary">
-                        <img src="images\budget.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
-
+                        <img src="images\homePage\budget.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
                         Total Budget
-                        <img src="images\editButton.png" alt="info" class="infoIcon" style="height:16px;width:16px;">
+                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon" style="height:16px;width:16px;">
                     </div> <!-- total budget ends -->
                     <div class="budgetValue blueText">
                         Rs.
@@ -148,7 +157,10 @@
 
                 <div class="itemB3">
                     <div class="RemainingToSpent textSummary">
-                        RemainingToSpent ->
+                        <img src="images\homePage\rts.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
+
+
+                        RemainingToSpent
                     </div> <!-- RemainingToSpent  ends -->
                     <div class="RemainToSpentValue blueText">
                         Rs. <%= _remainingToSpend %>

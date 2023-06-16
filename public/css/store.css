@@ -1,123 +1,220 @@
+:root {
+  --fs-veryLarge: 2rem;
+  --fs-large: 1.5rem;
+  --fs-medium: 1.25rem;
+  --fs-orangeColor: linear-gradient(
+    to right,
+    #ff4e50 0%,
+    #f9d423 51%,
+    #ff4e50 100%
+  );
+}
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  body {
-    background-color: #ece9c88a;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #fff;
+}
+.bigHeading {
+  margin-bottom: 10rem;
+}
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0.3125rem 0.9375rem;
+  box-sizing: content-box;
+  border: 1rem;
+  padding: 4rem;
+  margin: 2rem;
+  border-radius: 0.625rem;
+}
 
 #heading {
-    background-color: rgb(255, 165, 0);
-    text-align: center;
-    left: padding 3.125rem;
-  }
+  background-image: var(--fs-orangeColor);
+  text-align: center;
+  left: padding 3.125rem;
+}
 
 .box {
-    max-width:50%;
-    margin: 60px auto;
-    padding: 20px;
-    /* margin: auto; */
-    /* background: rgba(191, 87, 36, 0.637); */
-    border-radius: 0.3125rem;
-    box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
-  }
+  max-width: 50%;
+  margin: 3.75rem auto;
+  padding: 1.25rem;
+  border-radius: 0.3125rem;
+  box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
+}
 
+/***********************wallet image********************************************/
+.navBar{
+  margin: 5rem;
+}
+.upperBox{
+  background-color: #f8eba8;
+  padding: 2rem;
+  display: flex;
+}
+#column1
+{
+ padding: 5rem;
+}
+.headingBtns{
+  background-image: linear-gradient(
+    to right,
+    #ff4e50 0%,
+    #f9d423 51%,
+    #ff4e50 100%
+  );
+  /* margin: 10px; */
+  width: 12.5rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  height: 4.375rem;
+  padding: 1rem 2.8125rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  margin:1rem;
+  font-size: 1rem;
+  border-color: transparent;
+  border-radius: 0.625rem;
+  display: block;
+}
+.headingBtns:hover{
+  background-position: right center;
+  /* // change the direction of the change here // */
+  color: #fff;
+  text-decoration: none;
+}
+.columnClass{
+  width: 33%;
+}
+.walletImg {
+ height: 20rem;
+ width: 20rem;
+  display: block;
+  margin: auto;
+}
+.storeTxt{
+margin: 1rem;
+font-weight: 600;
+  font-size: 3rem;
+ text-align: center;
+}
+/********************************coin box starts********************************/
+#coin-box {
+  background-image: linear-gradient(
+    to right,
+    #ff4e50 0%,
+    #f9d423 51%,
+    #ff4e50 100%
+  );
+  /* margin: 10px; */
+  width: 12.5rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  height: 4.375rem;
+  padding: 1rem 2.8125rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 1.25rem #eee; */
+  border-radius: 0.625rem;
+  display: block;
+}
 
-  
-    .product-card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-    border-radius:15px;
-    padding: 15px;
-    background-color: rgb(247, 236, 181);
-  }
-  
-  .product-price {
-    color: grey;
-    font-size: 22px;
-  }
+#coin-box:hover {
+  background-position: right center;
+  /* // change the direction of the change here // */
+  color: #fff;
+  text-decoration: none;
+}
 
-  .product-card img {
-    border-radius: 15px;
-  }
-  
-  .product-card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: rgb(255, 165, 0);
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    border-radius:15px;
-  }
-  
-  .product-card button:hover {
-    opacity: 0.7;
-  }
+/***************************coin box ends *************************************************************/
 
-.collection {
-    display: grid;
-    grid-auto-columns: max-content;
-    grid-auto-flow: dense;
-    grid-auto-rows: minmax(100px, auto);
-    grid-gap: 25px;
-    grid-template-columns: repeat(4, 1fr);
-    
-      margin: 60px auto;
-      max-width: 80%;
-  }
-  
-  .product {
-  
-    &__image {
-      background-color: #e5e5e5;
-      display: block;
-      min-height: 200px;
-      width: 100%;
-    }
-    
-    &__name {
-      
-      p {
-        font-family: sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-     
-        a {
-          color: #000000;
-          text-decoration: none;
-        }
-      }
-    }
-    
-    &__price {
-  
-      p {
-        font-family: sans-serif;
-        font-size: 14px;
-      }
-    }
-  }
+hr.horizontalRow {
+  border-top: 1px solid red;
+}
 
-  
-#coin-box{
-    text-align: center;
-    margin: auto;
-    border-radius:15px;
-    background-color: #FFB81C;
-    width: 200px;
-    height: 70px;
-    margin-right: 0;
-    font-size: larger;
-    padding-top: 20px;
-    font-weight: 600;
-  }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  /* flex-direction: row; */
+}
+
+/***************************card starts  *************************************************************/
+.container {
+  margin: auto;
+}
+.row {
+  margin-left: 4rem;
+}
+
+.cardClass {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color:rgb(224, 220, 220);
+  /* background-color: rgb(230, 223, 162); */
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.cardClass:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.imageClass {
+  border-radius: 1rem;
+  height: 17.5rem;
+  width: 17.5rem;
+  display: block;
+  margin: auto;
+}
+
+.contentClass {
+  margin: 1rem;
+  display: flex;
+}
+.contentLeft {
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  color: rebeccapurple;
+}
+
+.contentRight {
+  text-align: right;
+  margin-left: auto;
+}
+.buttonClass {
+  text-align: center;
+  height: 4rem;
+  /* padding: 1rem; */
+  font-size: 1.5rem;
+  background-color: #ffbb00;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  width: 5.5rem;
+  color: white;
+
+  /* background-image: linear-gradient(
+    to right,
+    #ff4e50 0%,
+    #f9d423 51%,
+    #ff4e50 100%
+  ); */
+}
+.dollarImage {
+  margin-left: auto;
+}
+/***************************card ends  *************************************************************/
