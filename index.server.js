@@ -13,6 +13,8 @@ const User = require("./src/models/auth");
 const mongoose = require("mongoose");
 const Expense = require("./src/models/expense");
 
+const {signUp, signIn} = require("./src/controller/auth");
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -41,6 +43,8 @@ global._coins = 400;
 
 
 app.get("/", async function (req, res) {
+  _personId="";
+  _firstRender=true;
   try {
     // find all => find({}) => find all the items in the database-> empty curly braces
     res.render("loginsignup", {});
@@ -72,7 +76,7 @@ app.post("/delete", async function (req, res) {
 
   try {
     // const expenses = await Expense.find({
-    //   personId: "647b10038ddb90b857b504b2",
+    //   personId: _personId,
     // });
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
@@ -109,7 +113,7 @@ app.post("/delete", async function (req, res) {
 // "/"+ listName ..
 // adding expenses
 app.post("/", async function (req, res) {
-  const personId = "647b10038ddb90b857b504b2";
+  const personId = _personId;
   const description = req.body.Description;
   const amount = req.body.Amount;
   const category = req.body.Category;
@@ -165,7 +169,7 @@ console.log("newDashOffset is : "+newDashOffset);
 
   try {
     // const expenses = await Expense.find({
-    //   personId: "647b10038ddb90b857b504b2",
+    //   personId: _personId,
     // });
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
@@ -179,88 +183,55 @@ console.log("newDashOffset is : "+newDashOffset);
 
 /*****************************this is to add goal Items***********************************  */
 app.post("/addGoal", async function (req, res) {
-  // const personId = "647b10038ddb90b857b504b2";
-  const goalType = req.body.goalType;
-  const goalName = req.body.goalName;
-  const goalValue = req.body.goalValue;
+  // const personId = _personId;
+  const months = req.body.GoalMonths;
+  const name = req.body.GoalName;
+  const value = req.body.GoalValue;
+  const personId = _personId
 
   const goalData = new Goal({
-    goalType: goalType,
-    goalName: goalName,
-    goalValue: goalValue,
+    personId: personId,
+    months: months,
+    name: name,
+    value: value,
   });
-  await goalData.save();
+  // console.log(goalData)
 
-  // await Goal.create(goalData).then((data, err) => {
-  //   if (err) res.status(StatusCodes.BAD_REQUEST).json({ err });
-  //   else {
-
-  //   }
-  // });
-  // _expenditure = _expenditure + parseInt(amount);
-  // _remainingToSpend = _budget - _expenditure;
-
-  // const bal = {
-  //   income: _income,
-  //   expenditure: _expenditure,
-  //   budget: _budget,
-  //   provisionalBalance: _provisionalBalance,
-  //   remainingToSpend: _remainingToSpend,
-  // };
-
-  // try {
-  //   var response = await User.findOneAndUpdate({ _id: personId }, );
-  // } catch (err) {
-  //   console.log(err);
-  // }
-
-  try {
-    // const goal = await Goal.find({
-    //   personId: "647b10038ddb90b857b504b2",
-    // });
-    // await goal.save();
-    // console.log(expenses);
-    // find all => find({}) => find all the items in the database-> empty curly braces
-    /******************************************************************** */
-    /*we need to make another list here named Goals==> then render the newly inserted data over there  */
-    // res.render("list", { listTitle: "This Month", newListItems: expenses });
-    // const foundList = await List.findOne({ name: listName });
-    // if (foundList) {
-    //   foundList.items.push(item);
-    //   await foundList.save();
-    const foundList = await goalList.findOne({ name: "Goals" });
-    if (foundList) {
-      foundList.goals.push(goalData);
-      await foundList.save();
+  await Goal.create(goalData).then((data, err) => {
+    if (err) res.status(StatusCodes.BAD_REQUEST).json({ err });
+    else {
       res.redirect("/homepage");
     }
-    res.redirect("/homepage");
-    // }
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("error ");
-  }
+  });
+  
 });
 
 
 app.get("/homepage", async function (req, res) {
-  // console.log("hello ashwani");
+  // console.log(res.req.query.Email)
+  // const email = req.query.Email;
+  // const password = req.query.Password;
+  // const result = await signIn(email,password);
+  // console.log(result);
   try {
     if(_firstRender){
-      const values = await User.findById("647b10038ddb90b857b504b2");
+      const values = await User.findById(_personId);
       _income = values.income;
       _expenditure = values.expenditure;
       _budget = values.budget;
       _provisionalBalance = values.provisionalBalance;
       _remainingToSpend = values.remainingToSpend;
+      _coins = values.coins;
 
       _firstRender=false;
     }
 
-    const expenses = await Expense.find({ personId: "647b10038ddb90b857b504b2" });
+    const expenses = await Expense.find({ personId: _personId });
+    const goal = await Goal.find({ personId: _personId });
+    // console.log(goal);
     // console.log(expenses);
     // find all => find({}) => find all the items in the database-> empty curly braces
-    res.render("list", { listTitle: "This Month", newListItems: expenses });
+    res.render("list", { listTitle: "This Month", newListItems: expenses, goalList: goal });
     // res.render("store", { count: 5 });
   } catch (err) {
     console.log(err);
@@ -269,30 +240,36 @@ app.get("/homepage", async function (req, res) {
 });
 
 /************************************************************** */
-app.post("/homepage", async function (req, res) {
+app.post("/signIn", async function (req, res) {
   // const email = req.body.Email;
   // const password = req.body.Password;
   // console.log(email);
-  // await signIn(req, res);
+  try{
+    const result = await signIn(req,res);
+    if(result===true){
+      res.redirect("/homepage")
+    }else{
+      res.redirect("/")
+    }    
+  }catch(e){
+    res.redirect("/")
+  }
+});
 
-  try {
-    const values = await User.findById("647b10038ddb90b857b504b2");
-    _income = values.income;
-    _expenditure = values.expenditure;
-    _budget = values.budget;
-    _provisionalBalance = values.provisionalBalance;
-    _remainingToSpend = values.remainingToSpend;
 
-    const expenses = await Expense.find({
-      personId: "647b10038ddb90b857b504b2",
-    });
-
-    // console.log(expenses);
-    // find all => find({}) => find all the items in the database-> empty curly braces
-    res.render("list", { listTitle: "This Month", newListItems: expenses ,_dashOffset:0});
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("error thai 6e...");
+app.post("/signUp", async function (req, res) {
+  // const email = req.body.Email;
+  // const password = req.body.Password;
+  // console.log(email);
+  try{
+    const result = await signUp(req,res);
+    if(result===true){
+      res.redirect("/homepage")
+    }else{
+      res.redirect("/")
+    }    
+  }catch(e){
+    res.redirect("/")
   }
 });
 

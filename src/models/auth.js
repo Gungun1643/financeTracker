@@ -62,6 +62,10 @@ const userSchema = new mongoose.Schema({
    require: true,
    trim: true,
   },
+  coins: {
+   type: Number,
+   trim: true,
+  }
 },{ timestamps: true });
 //For get fullName from when we get data from database
 userSchema.virtual("fullName").get(function () {

@@ -30,17 +30,17 @@
 	
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
-			<form action="#">
+			<form action="/signUp" method="post">
 				<h1>Create Account</h1>
-				<input type="text" id="index-signup-firstname" placeholder="First Name" />
-				<input type="text" id="index-signup-lastname" placeholder="Last Name" />
-				<input type="email" id="index-signup-email" placeholder="Email" />
-				<input type="password" id="index-signup-password" placeholder="Password" />
-				<button id="index-signup-button">Sign Up</button>
+				<input type="text" id="index-signup-firstname" name="FirstName" placeholder="FirstName" />
+				<input type="text" id="index-signup-lastname" name="LastName" placeholder="LastName" />
+				<input type="email" id="index-signup-email" name="Email" placeholder="Email" />
+				<input type="password" id="index-signup-password" name="Password" placeholder="Password" />
+				<button type="submit" id="index-signup-button" onClick="this.form.submit()">Sign Up</button>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="/homepage" method="get">
+			<form action="/signIn" method="post">
 				<h1>Sign in</h1>
 				<!-- <div class="social-container">
 					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
