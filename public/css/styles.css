@@ -4,9 +4,25 @@
   --fs-medium: 1.25rem;
   --fs-blueColor: #1aa9c4;
   --dash-offset:0;
+   --customizedColor: linear-gradient(to right, #FF4E50 0%, #F9D423  51%, #FF4E50  100%);
 }
 /**/
-.orangeColorText {
+.orangeColorText{
+    background-image: linear-gradient(to right, #FF4E50 0%, #F9D423  51%, #FF4E50  100%);
+    margin: 0.625rem;
+    box-sizing: content-box;
+    padding: 1rem 2.8125rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 1.25rem #eee;
+    border-radius: 0.625rem;
+    display: block;
+
+}
+/* .orangeColorText {
   padding: 0.625rem;
 
   background: hsla(20, 88%, 51%, 1);
@@ -45,7 +61,7 @@
   );
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F05E16", endColorstr="#FF8822", GradientType=1 );
-}
+} */
 /**/
 html {
   background-color: #e4e9fd;
@@ -65,15 +81,16 @@ h2 {
 .box {
   max-width: 25rem;
   margin: 3.125rem auto;
-  background: white;
+  /* background: white; */
   border-radius: 0.3125rem;
   border-radius: 25px;
   box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
 }
 
 #heading {
-  background-color: rgb(255, 165, 0);
+  /* background-color: rgb(255, 165, 0); */
   text-align: center;
+ 
   left: padding 3.125rem;
 }
 
@@ -139,7 +156,6 @@ input[type="text"] {
 input[type="text"]:focus {
   outline: none;
   box-shadow: inset 0 -0.1875rem 0 0 rgb(255, 165, 0);
-  /* box-shadow: inset 0 -3px 0 0  rgb(255, 165, 0); */
 }
 
 ::placeholder {
@@ -213,6 +229,8 @@ body {
 /* error */
 /* edit */
 /* edit delete */
+
+
 
 @media screen and (max-width: 600px) {
   .wrapper {
