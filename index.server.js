@@ -40,47 +40,47 @@ global._remainingToSpend = _budget - _expenditure;
 global._coins = 400;
 
 /* store temp get method  */
-// app.get("/", async function (req, res) {
-//   try {
-//     fs.readFile(
-//       path.join(__dirname, "itemsData", "tshirts.json"),
-//       "utf8",
-//       (err1, data1) => {
-//         if (err1) {
-//           console.log(err1);
-//           return res.status(500).send("Error in reading the JSON file");
-//         }
-//         fs.readFile(
-//           path.join(__dirname, "itemsData", "cups.json"),
-//           "utf8",
-//           (err2, data2) => {
-//             if (err2) {
-//               console.log(err2);
-//               return res.status(500).send("Error in reading the JSON file");
-//             }
-//             fs.readFile(
-//               path.join(__dirname, "itemsData", "books.json"),
-//               "utf8",
-//               (err3, data3) => {
-//                 if (err3) {
-//                   console.log(err3);
-//                   return res.status(500).send("Error in reading the JSON file");
-//                 }
-//                 const t = JSON.parse(data1);
-//                 const c = JSON.parse(data2);
-//                 const b = JSON.parse(data3);
-//                 res.render("store", { tshirts: t, cups: c, books: b });
-//               }
-//             );
-//           }
-//         );
-//       }
-//     );
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).send("error thai 6e...");
-//   }
-// });
+app.post("/toStore", async function (req, res) {
+  try {
+    fs.readFile(
+      path.join(__dirname, "itemsData", "tshirts.json"),
+      "utf8",
+      (err1, data1) => {
+        if (err1) {
+          console.log(err1);
+          return res.status(500).send("Error in reading the JSON file");
+        }
+        fs.readFile(
+          path.join(__dirname, "itemsData", "cups.json"),
+          "utf8",
+          (err2, data2) => {
+            if (err2) {
+              console.log(err2);
+              return res.status(500).send("Error in reading the JSON file");
+            }
+            fs.readFile(
+              path.join(__dirname, "itemsData", "books.json"),
+              "utf8",
+              (err3, data3) => {
+                if (err3) {
+                  console.log(err3);
+                  return res.status(500).send("Error in reading the JSON file");
+                }
+                const t = JSON.parse(data1);
+                const c = JSON.parse(data2);
+                const b = JSON.parse(data3);
+                res.render("store", { tshirts: t, cups: c, books: b });
+              }
+            );
+          }
+        );
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("error thai 6e...");
+  }
+});
 
 /*this is how you need to write the actual store get method  */
 // app.get('/store', (req, res) => {

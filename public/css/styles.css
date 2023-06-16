@@ -87,10 +87,17 @@ h2 {
   box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
 }
 
+.button{
+  /* background-color: transparent; */
+  border-radius: transparent;
+}
+.button:hover{
+  cursor: pointer;
+
+}
 #heading {
   /* background-color: rgb(255, 165, 0); */
   text-align: center;
- 
   left: padding 3.125rem;
 }
 

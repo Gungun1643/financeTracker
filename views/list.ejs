@@ -19,11 +19,17 @@
     <!-- box  -->
     
     <div id="coin-box" class="orangeColorText">
-        Your Coins: 
-        <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
+        <!-- Your Coins:  -->
+        <%= _coins %>
+        <!-- <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;"> -->
         <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
         <div>
-            <%= _coins %>
+            <form action="/toStore" method="post">
+         
+                <button class="button">
+                    <img src="images/homePage/shoppingBag.png" style="height: 3rem;width: 3rem;" />
+                   </button>
+            </form>
         </div>
 
     </div>
@@ -33,10 +39,8 @@
             <!-- net disposable income -->
             <div class="netDisposableIncome div-left">
                 <div class="netDisposableIncomeHeading">
-
                     <h2>
                         <img src="images\homePage\incm.png" alt="coin" class="infoIcon" style="height:2.75rem;width:2.75rem;">
-
                         Net Disposable Income
                         <!-- <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;"> -->
 
@@ -58,10 +62,8 @@
             <div class="totalExpenditure div-right">
 
                 <div class="totalExpenditureHeading">
-
                     <h2>
                         <img src="\images\homePage\expns.png" alt="coin" class="infoIcon" style="height:2.5rem;width:2.5rem;">
-
                         Total Expenditure </h2>
                 </div> <!--totalExpenditureHeading ends -->
 
@@ -77,9 +79,6 @@
         <!-- progress bar starts  -->
 
         <div class="second-row gridItem2">
-
-
-
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
             <h2>
                 <%= _dashOffset %>
@@ -96,11 +95,9 @@
 
                     </div><!-- inner ends -->
                 </div><!-- outer ends -->
-
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px"
                     class="progress-circle" data-dash-offset="<%= _dashOffset %>">
                     <defs>
-
                         yellow to orange
                         <linearGradient id="GradientColor">
                             <stop offset="0%" stop-color="#F32013" />
@@ -123,9 +120,9 @@
             <div class="grid-container2">
                 <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
                     <div class="totalBudget textSummary">
-                        <img src="images\homePage\budget.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
+                        <img src="images\homePage\budget.png" alt="info" class="infoIcon" style="height:2rem;width:2rem;">
                         Total Budget
-                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon" style="height:16px;width:16px;">
+                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
                     </div> <!-- total budget ends -->
                     <div class="budgetValue blueText">
                         Rs.
@@ -157,7 +154,7 @@
 
                 <div class="itemB3">
                     <div class="RemainingToSpent textSummary">
-                        <img src="images\homePage\rts.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
+                        <img src="images\homePage\rts.png" alt="info" class="infoIcon" style="height:2rem;width:2rem;">
 
 
                         RemainingToSpent
@@ -376,7 +373,7 @@
             </div>
             <!-- bHeading ends -->
             <div class="firstClass">
-                add Goal
+                <!-- add Goal -->
                 <form action="/addGoal" method="post">
                     <div class="container3B">
                         <!-- container3bItem1 ends -->
@@ -406,7 +403,7 @@
                         <button type="submit" name="goal" id="addGoalBtn">+</button>
                     </div>
                 </form>
-                l;kajdflkajdf
+                <!-- l;kajdflkajdf -->
             </div>
             <div class="secondClass">
 
@@ -473,6 +470,9 @@
 
         /* */
 
+        // function hrefFunction(){
+        //     windows.location.href = "/store";
+        // }
     </script>
 
 
