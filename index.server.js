@@ -12,6 +12,9 @@ const Goal = require("./src/models/goal");
 const User = require("./src/models/auth");
 const mongoose = require("mongoose");
 const Expense = require("./src/models/expense");
+/*gungun modification */
+const path = require("path");
+const fs = require("fs");
 
 const {signUp, signIn} = require("./src/controller/auth");
 
@@ -19,35 +22,88 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/api", authRouter);
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+/*gungun modification */
+app.set("views", path.join(__dirname, "views"));
 
 global._personId = "";
-global._firstRender = true
+global._firstRender = true;
 
 global._income = 2000;
 global._expenditure = 0;
 global._budget = 1000;
 global._provisionalBalance = _income - _budget;
-global._dashOffset=100;
+global._dashOffset = 100;
 global._remainingToSpend = _budget - _expenditure;
 global._coins = 400;
-//the above require word to be used here
-// const goalList = {
-//   name: String,
-//   items: [Goal]
-// };
-// const Goals = mongoose.model("Goals", goalList);
 
+/* store temp get method  */
+// app.get("/", async function (req, res) {
+//   try {
+//     fs.readFile(
+//       path.join(__dirname, "itemsData", "tshirts.json"),
+//       "utf8",
+//       (err1, data1) => {
+//         if (err1) {
+//           console.log(err1);
+//           return res.status(500).send("Error in reading the JSON file");
+//         }
+//         fs.readFile(
+//           path.join(__dirname, "itemsData", "cups.json"),
+//           "utf8",
+//           (err2, data2) => {
+//             if (err2) {
+//               console.log(err2);
+//               return res.status(500).send("Error in reading the JSON file");
+//             }
+//             fs.readFile(
+//               path.join(__dirname, "itemsData", "books.json"),
+//               "utf8",
+//               (err3, data3) => {
+//                 if (err3) {
+//                   console.log(err3);
+//                   return res.status(500).send("Error in reading the JSON file");
+//                 }
+//                 const t = JSON.parse(data1);
+//                 const c = JSON.parse(data2);
+//                 const b = JSON.parse(data3);
+//                 res.render("store", { tshirts: t, cups: c, books: b });
+//               }
+//             );
+//           }
+//         );
+//       }
+//     );
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).send("error thai 6e...");
+//   }
+// });
 
+/*this is how you need to write the actual store get method  */
+// app.get('/store', (req, res) => {
+//   fs.readFile('tshirts.json', 'utf8', (err, data) => {
+//     if (err) {
+//       console.error(err);
+//       return res.status(500).send('Error reading JSON file');
+//     }
+
+//     const tshirts = JSON.parse(data);
+//     res.render('store', { tshirts });
+//   });
+// });
+
+/*this is the final method  */
 app.get("/", async function (req, res) {
   _personId="";
   _firstRender=true;
   try {
     // find all => find({}) => find all the items in the database-> empty curly braces
-    res.render("loginsignup", {});
+    // res.render("store", {count:5});
+    res.render("loginsignup");
+    // res.render("list", { listTitle: "This Month", newListItems: expenses, _dashOffset:newDashOffset });
   } catch (err) {
     console.log(err);
     res.status(500).send("error thai 6e...");
@@ -99,15 +155,13 @@ app.post("/delete", async function (req, res) {
 //   console.log("newDashArray is : "+newDashArray);
 //   const newDashOffset=472-newDashArray;
 //   console.log("newDashOffset is : "+newDashOffset);
-  
+
 //   var element = document.getElementsByClassName("circle");
 //   console.log("element is : "+element);
 //   element.style.strokeDashoffset =newDashOffset+"px";
 //   res.render("index.server.js" , {newDashOffset:newDashOffset});
-  
+
 // })
-
-
 
 /******************************************************************** */
 // "/"+ listName ..
@@ -143,23 +197,21 @@ app.post("/", async function (req, res) {
     provisionalBalance: _provisionalBalance,
     remainingToSpend: _remainingToSpend,
   };
-/***************change the css of the circle ***************************** */
-console.log("****************************** ");
-console.log("expenditure: "+_expenditure);
-console.log("remaingToSpent: "+_remainingToSpend);
-const per= (_remainingToSpend/_budget)*100;
-console.log("precentage is : "+per);
-const newDashArray=(per*472)/100;
-console.log("newDashArray is : "+newDashArray);
-const newDashOffset=472-newDashArray;
-console.log("newDashOffset is : "+newDashOffset);
+  /***************change the css of the circle ***************************** */
+  console.log("****************************** ");
+  console.log("expenditure: " + _expenditure);
+  console.log("remaingToSpent: " + _remainingToSpend);
+  const per = (_remainingToSpend / _budget) * 100;
+  console.log("precentage is : " + per);
+  const newDashArray = (per * 472) / 100;
+  console.log("newDashArray is : " + newDashArray);
+  const newDashOffset = 472 - newDashArray;
+  console.log("newDashOffset is : " + newDashOffset);
 
-// var element = document.getElementsByClassName("circle");
-// console.log("element is : "+element);
-// element.style.strokeDashoffset =newDashOffset+"px";
-/****************************************************** */
-
-
+  // var element = document.getElementsByClassName("circle");
+  // console.log("element is : "+element);
+  // element.style.strokeDashoffset =newDashOffset+"px";
+  /****************************************************** */
 
   try {
     var response = await User.findOneAndUpdate({ _id: personId }, bal);
@@ -206,7 +258,6 @@ app.post("/addGoal", async function (req, res) {
   
 });
 
-
 app.get("/homepage", async function (req, res) {
   // console.log(res.req.query.Email)
   // const email = req.query.Email;
@@ -223,7 +274,7 @@ app.get("/homepage", async function (req, res) {
       _remainingToSpend = values.remainingToSpend;
       _coins = values.coins;
 
-      _firstRender=false;
+      _firstRender = false;
     }
 
     const expenses = await Expense.find({ personId: _personId });
@@ -270,7 +321,14 @@ app.post("/signUp", async function (req, res) {
     }    
   }catch(e){
     res.redirect("/")
-  }
+    // console.log(expenses);
+    // find all => find({}) => find all the items in the database-> empty curly braces
+//     res.render("list", {
+//       listTitle: "This Month",
+//       newListItems: expenses,
+//       _dashOffset: 0,
+//     });
+  } 
 });
 
 //Port and Connect to DB

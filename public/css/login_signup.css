@@ -46,8 +46,49 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	background: rgb(255,255,255);
+	/* background: linear-gradient(100deg, rgba(255,255,255,1) 0%, rgba(254,174,44,1) 0%, rgba(254,80,65,1) 0%, rgba(254,65,67,1) 0%, rgba(254,84,64,1) 45%, rgba(254,87,63,1) 83%, rgba(254,192,44,1) 95%, rgba(254,192,44,1) 98%);
+	 */
+/*  */
+padding: 0.625rem;
+
+  background: hsla(20, 88%, 51%, 1);
+
+  background: linear-gradient(
+    45deg,
+    hsla(20, 88%, 51%, 1) 20%,
+    hsla(28, 100%, 57%, 1) 47%,
+    hsla(58, 100%, 63%, 1) 87%,
+    hsla(29, 92%, 52%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(33, 94%, 54%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(20, 88%, 51%, 1) 20%,
+    hsla(28, 100%, 57%, 1) 47%,
+    hsla(58, 100%, 63%, 1) 87%,
+    hsla(29, 92%, 52%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(33, 94%, 54%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(20, 88%, 51%, 1) 20%,
+    hsla(28, 100%, 57%, 1) 47%,
+    hsla(58, 100%, 63%, 1) 87%,
+    hsla(29, 92%, 52%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(36, 75%, 77%, 1) 100%,
+    hsla(33, 94%, 54%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F05E16", endColorstr="#FF8822", GradientType=1 );
+	 /*  */
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -57,12 +98,14 @@ button {
 	transition: transform 80ms ease-in;
 }
 
+
 button:active {
 	transform: scale(0.95);
 }
 
 button:focus {
 	outline: none;
+	
 }
 
 button.ghost {
@@ -91,7 +134,7 @@ input {
 
 .container {
 	background-color: #fff;
-	border-radius: 10px;
+	border-radius: 0.5rem;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
@@ -160,9 +203,11 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
+	/* background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C); */
+	background: rgb(255,255,255);
+	background: linear-gradient(100deg, rgba(255,255,255,1) 0%, rgba(254,174,44,1) 0%, rgba(254,80,65,1) 0%, rgba(254,65,67,1) 0%, rgba(254,84,64,1) 45%, rgba(254,87,63,1) 83%, rgba(254,192,44,1) 95%, rgba(254,192,44,1) 98%);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

@@ -1,113 +1,233 @@
 <html>
 
 <head>
-    <title>Calculator</title>
-    <link rel="stylesheet" href="css\store.css">
-    <%- include("header") -%>
-        <div>
-            <link rel="stylesheet" href="css\store.css">
-        </div>
-        <div class="box" id="heading">
-            <h1>
-                Welcome to the store
-            </h1>
-        </div>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="css\store.css">
+  <%- include("header") -%>
+    <div>
+      <link rel="stylesheet" href="css\store.css">
+    </div>
+    <!-- favicon starts -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
+
+
+    <!-- favicon ends  -->
 </head>
 
 <body>
-    <div id="coin-box">
-        Your Coins: 
-        <img src="images\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
-        <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
-        <%= _coins %>
-    </div>
-    <script>
-      const coin = document.getElementById("coin-box")
+  <div class="navBar">
 
-      coin.addEventListener("click", () => {
-          console.log("clicked");
-          // count++;       
-
-        var inputnon = document.createElement("input");
-        inputnon.type ="radio";
-        inputnon.id= "selection_non";
-        inputnon.name="selection";
-        inputnon.value="non";
-        document.getElementsByClassName("collection")[0].appendChild(inputnon);
-      })
-    </script>
-    <div class="collection">
-    <!-- Imagine a loop produced this... -->
-
-    <!-- <div class="product-card">
-        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
-        <br></br>
-        <h1>Gun Buddy</h1>
-        <p class="product-price">40 coins</p>
-        <br></br>
-        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
-        <br></br>
-        <p><button>Buy now</button></p>
-      </div>
-
-      <div class="product-card">
-        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
-        <br></br>
-        <h1>Gun Buddy</h1>
-        <p class="product-price">40 coins</p>
-        <br></br>
-        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
-        <br></br>
-        <p><button>Buy now</button></p>
-      </div>
-
-      <div class="product-card">
-        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
-        <br></br>
-        <h1>Gun Buddy</h1>
-        <p class="product-price">40 coins</p>
-        <br></br>
-        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
-        <br></br>
-        <p><button>Buy now</button></p>
-      </div>
-
-      <div class="product-card">
-        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
-        <br></br>
-        <h1>Gun Buddy</h1>
-        <p class="product-price">40 coins</p>
-        <br></br>
-        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
-        <br></br>
-        <p><button>Buy now</button></p>
-      </div>
-
-
-      <div class="product-card">
-        <img src="images/product.jpg" alt="Denim Jeans" style="width:100%">
-        <br></br>
-        <h1>Gun Buddy</h1>
-        <p class="product-price">40 coins</p>
-        <br></br>
-        <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
-        <br></br>
-        <p><button>Buy now</button></p>
-      </div> -->
-      <% for(var i=0;i<count;i++){ %>
-        <div class="product-card">
-            <img src="images/product"+i+".jpg" alt="Denim Jeans" style="width:100%">
-            <br></br>
-            <h1>Gun Buddy</h1>
-            <p class="product-price">40 coins</p>
-            <br></br>
-            <p>anjdsfba askdlfasifs ff slafsdflkusflasi fashlfsdfsdlkuf kdsofk</p>
-            <br></br>
-            <p><button>Buy now</button></p>
-        </div>
-      <% } %>
   </div>
+  <!----------------------------------------- heading starts ----------------------------------------->
+  <div class="upperBox">
+
+    <div class="columnClass" id="column1">
+      <div class="buttonsBox">
+        <div>
+          <button class="headingBtns" id="button1" >
+            <img src="images\storePage\gift.png" alt="coin" style="height:24px;width:24px;margin-top:auto" class="dollarImage">
+            Reedem</button>
+
+        </div>
+        <div>
+
+          <button class="headingBtns" id="button1">
+            <img src="images\storePage\star.png" alt="coin" style="height:24px;width:24px;margin-top:auto" class="dollarImage">
+
+            Premium</button>
+
+        </div>
+        <div>
+          <button class="headingBtns" id="button1">
+            <img src="images\storePage\telegram.png" alt="coin" style="height:24px;width:24px;margin-top:auto" class="dollarImage">
+
+            View Orders</button>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="columnClass" id="column2">
+      <img src="images\storePage\wallet2.png" alt="coin" class="walletImg">
+
+      <div class="storeTxt">Our Store</div>
+
+    </div>
+    <div class="columnClass" id="column3">
+        <div> 
+           <div id="coin-box">
+      <div class="yourCoinTxt"> Your Coins:</div>
+      <!-- <!- <br> -> -->
+      <div class="yourCoinsImg">
+        <%= _coins %>
+          <img src="images\storePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
+      </div>
+      <!-- <!- yourCoinsImg ends -> -->
+    </div>
+        </div>
+    </div>
+
+    <!-- <div class="shadow"> -->
+
+    <!-- <div class="headingBox">
+      <div class="box" id="heading">
+        <h1>
+          <!- Welcome to the store ->
+        </h1>
+      </div>
+      <!- box ends  ->
+    </div> -->
+    <!-- headingBox ends  -->
+
+
+    <!----------------------------------------- heading ends --------------------------------------- -->
+    <!-- <div id="coin-box">
+      <div class="yourCoinTxt"> Your Coins:</div>
+      <!- <br> ->
+      <div class="yourCoinsImg">
+        <%= _coins %>
+          <img src="images\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
+      </div>
+      <!- yourCoinsImg ends ->
+    </div> -->
+    <!-- coin-box -->
+
+
+
+
+    <!-- upper box ends -->
+  </div>
+
+
+
+
+  <!-- </div> shadow class ends here -->
+
+
+  <hr class="horizontalRow">
+  <!-- shadow class -->
+
+
+
+  <div class="container row">
+    <% tshirts.forEach((t,index)=> { %>
+      <div class="card cardClass">
+        <div class="imageClass">
+          <img src="images\storePage\tshirts/t<%= index %>.jpg" class="card-img-top imageClass" alt="...">
+        </div>
+        <!-- imageClass ends -->
+        <div class="card-body contentClass">
+          <div class="contentLeft">
+            <p>
+              <%= t.name %>
+            </p>
+          </div>
+          <!--  content left ends -->
+          <div class=" contentRight">
+            <button class=" buttonClass">
+              <span style="margin-bottom:1.5rem">
+                <%= t.price %>
+              </span>
+              <span>
+                <img src="images\storePage\dollar.png" alt="coin" style="height:24px;width:24px;margin-top:auto"
+                  class="dollarImage"></span>
+            </button>
+          </div>
+          <!-- content right ends -->
+        </div>
+        <!-- card-body contentClass ends -->
+      </div>
+      <!-- card cardClass -->
+      <% }) %>
+  </div>
+  <!-- container row ends -->
+
+  <!-- this one for the cups -->
+  <div class="container row">
+    <% cups.forEach((c,index)=> { %>
+      <div class="card cardClass">
+        <div class="imageClass">
+          <img src="images/storePage\cups/c<%= index %>.jpg" class="card-img-top imageClass" alt="...">
+        </div>
+        <div class="card-body contentClass">
+          <div class="contentLeft">
+            <p>
+              <%= c.name %>
+            </p>
+          </div>
+          <div class=" contentRight">
+            <button class="w3-button w3-yellow buttonClass">
+              <span class="margin-bottom:0.5rem">
+                <%= c.price %>
+              </span>
+              <img src="images\storePage\dollar.png" alt="coin" style="height:24px;width:24px;margin-top:auto"
+                class="dollarImage">
+            </button>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+
+  <!-- this one is for books  -->
+  <div class="container row">
+    <% books.forEach((b,index)=>{ %>
+      <div class="card cardClass">
+        <div class="imageClass">
+          <img src="images/storePage\books/b<%= index %>.jpg" class="card-img-top imageClass" alt="...">
+        </div>
+        <div class="card-body contentClass">
+          <div class="contentLeft">
+            <p>
+              <%= b.name %>
+            </p>
+          </div>
+          <div class=" contentRight">
+            <button class="w3-button w3-yellow buttonClass">
+              <span class="margin-bottom:0.5rem">
+                <%= b.price %>
+              </span>
+              <img src="images\storePage\dollar.png" alt="coin" style="height:24px;width:24px;margin-top:auto"
+                class="dollarImage">
+            </button>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+
+  <!----------------------------------------------------------------------- javascript starts ----------------------------------------------------------------------->
+  <!-- bootstrap library starts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <!-- bootstrap library ends -->
+  <script>
+    const coin = document.getElementById("coin-box")
+
+    coin.addEventListener("click", () => {
+      console.log("clicked");
+      // count++;       
+
+      var inputnon = document.createElement("input");
+      inputnon.type = "radio";
+      inputnon.id = "selection_non";
+      inputnon.name = "selection";
+      inputnon.value = "non";
+      document.getElementsByClassName("collection")[0].appendChild(inputnon);
+    })
+  </script>
+  <!-- to include the store.js library  -->
   <script src="js\store.js"></script>
+  <!--store.js ends here  -->
+  <!----------------------------------------------------------------------- javascripts ends --------------------------------------------------------------------- -->
 </body>
+
 </html>
