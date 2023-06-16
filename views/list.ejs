@@ -328,25 +328,31 @@
             <h2 style="padding:2%;text-align:center">
                 Your Dream Goals Plan!!
             </h2>
+            
             <!--     </div> -->
-
+            
+            <% for(let i=0;i<goalList.length;i++){ %>
             <div class="goalItem">
-                <h2 style="text-align: center;padding: 2%;"> New Car</h2>
+                <h2 style="text-align: center;padding: 2%;"> <%= goalList[i].name  %></h2>
 
                 <div class="output-box">
+                    
                     <div class="left-section">
-                        <h3 id="goal_meet_per">0.71%</h3>
+                        <!-- <h3 id="goal_meet_per">0.71%</h3> -->
+                        <h3 id="goal_meet_per">  <%= ((_income-_budget+_remainingToSpend)/goalList[i].value) %>% </h3>
                         <p>of your goal has been met</p>
                         <p id="you_need_to_invest">You need to invest <span class="calculatedText">444.77 / month
                             </span></p>
                     </div>
                     <!-- leftsection ends  -->
                     <div class="right-section">
-                        <p>Dream Car Savings Goal : <span class="_calcy calculatedText"
-                                id="retirement_goal_span">5,368</span></p>
-                        <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
-                        </p>
-                        <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">5,330</span>
+                        <p><%= goalList[i].name %> Savings Goal : <span class="_calcy calculatedText"
+                                id="retirement_goal_span"><%= goalList[i].value %></span></p>
+                        <!-- <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
+                        </p> -->
+                        <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">
+                            <%= (goalList[i].value - (_income-_budget+_remainingToSpend)) %>
+                        </span>
                         </p>
                     </div>
                     <!-- right section ends  -->
@@ -354,6 +360,8 @@
                 <!-- output box ends -->
 
             </div>
+            
+            <% } %>
             <!-- goalItem ends -->
 
             <!-- a class ends -->
@@ -371,22 +379,23 @@
                 add Goal
                 <form action="/addGoal" method="post">
                     <div class="container3B">
+                        <!-- container3bItem1 ends -->
+                        <div class="container3bItem2">
+                            <input type="text" id="nameOfGoal" name="GoalName" required minlength="4" maxlength="20"
+                                placeholder="GoalName" />
+                        </div>
+                        <!-- container3bItem2 ends-->
+                        <div class="container3bItem3">
+                            <input type="number" id="setGoalValue" placeholder="GoalValue" name="GoalValue" />
+                        </div>
                         <div class="container3bItem1">
-                            <select name="goalCategory" id="goalCategory" class="goalTypeSet">
+                            <input type="number" id="goalCategory" placeholder="Months" name="GoalMonths" />
+                            <!-- <select name="GoalCategory" id="goalCategory" class="goalTypeSet">
                                 <option value="Property">Property </option>
                                 <option value="Gold">Gold </option>
                                 <option value="Vehicle">Vehicle</option>
                                 <option value="TV">TV</option>
-                            </select>
-                        </div>
-                        <!-- container3bItem1 ends -->
-                        <div class="container3bItem2">
-                            <input type="text" id="nameOfGoal" name="nameOfGoal" required minlength="4" maxlength="20"
-                                placeholder="Name Of Goal" />
-                        </div>
-                        <!-- container3bItem2 ends-->
-                        <div class="container3bItem3">
-                            <input type="number" id="setGoalValue" placeholder="Value" />
+                            </select> -->
                         </div>
                         <!--  container3bItem3 ends -->
                         <!--         <button type="submit" name="goal" id="addGoalBtn">+</button> -->

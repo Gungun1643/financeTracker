@@ -3,17 +3,22 @@ const bcrypt = require("bcrypt");
 const { collection } = require("./auth");
 const goalSchema = new mongoose.Schema(
   {
-    goalType: {
+    personId: {
       type: String,
       require: true,
       trim: true,
     },
-    goalName: {
+    months: {
+      type: Number,
+      require: true,
+      trim: true,
+    },
+    name: {
       type: String,
       require: true,
       trim: true,
     },
-    goalValue: {
+    value: {
       type: Number,
       require: true,
       trim: true,
