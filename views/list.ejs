@@ -17,20 +17,19 @@
 
 <body>
     <!-- box  -->
-    
+
     <div id="coin-box" class="orangeColorText">
         <!-- Your Coins:  -->
         <%= _coins %>
-        <!-- <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;"> -->
-        <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
-        <div>
-            <form action="/toStore" method="post">
-         
-                <button class="button">
-                    <img src="images/homePage/shoppingBag.png" style="height: 3rem;width: 3rem;" />
-                   </button>
-            </form>
-        </div>
+            <!-- <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;"> -->
+            <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
+            <div>
+                <form action="/toStore" method="post">
+                    <button class="button">
+                        <img src="images/homePage/shoppingBag.png" style="height: 3rem;width: 3rem;" />
+                    </button>
+                </form>
+            </div>
 
     </div>
 
@@ -40,7 +39,8 @@
             <div class="netDisposableIncome div-left">
                 <div class="netDisposableIncomeHeading">
                     <h2>
-                        <img src="images\homePage\incm.png" alt="coin" class="infoIcon" style="height:2.75rem;width:2.75rem;">
+                        <img src="images\homePage\incm.png" alt="coin" class="infoIcon"
+                            style="height:2.75rem;width:2.75rem;">
                         Net Disposable Income
                         <!-- <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;"> -->
 
@@ -52,7 +52,7 @@
 
                     <p style="text-align: center;">
                         <%= _income %>
-                        
+
                     </p>
                 </div> <!--net disposable income value ends -->
             </div> <!--net disposable income ends -->
@@ -64,8 +64,10 @@
 
                 <div class="totalExpenditureHeading">
                     <h2>
-                        <img src="\images\homePage\expns.png" alt="coin" class="infoIcon" style="height:2.5rem;width:2.5rem;">
-                        Total Expenditure </h2>
+                        <img src="\images\homePage\expns.png" alt="coin" class="infoIcon"
+                            style="height:2.5rem;width:2.5rem;">
+                        Total Expenditure
+                    </h2>
                 </div> <!--totalExpenditureHeading ends -->
 
                 <div class="totalExpenditureValue headingMoney">
@@ -89,7 +91,7 @@
 
                 <div class="outer">
                     <div class="inner">
-                     
+
                         <div id="number" style="text-align:center">
                             Remaining To Spent
                         </div> <!-- number ends -->
@@ -119,11 +121,22 @@
 
         <div class="third-row gridItem3">
             <div class="grid-container2">
-                <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
+                <div class="itemB1" >
+
+                <!-- <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);"> -->
                     <div class="totalBudget textSummary">
-                        <img src="images\homePage\budget.png" alt="info" class="infoIcon" style="height:2rem;width:2rem;">
+                        <img src="images\homePage\budget.png" alt="info" class="infoIcon"
+                            style="height:2rem;width:2rem;">
                         Total Budget
-                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
+                                      
+                        <form>
+                         
+                            <button>
+                                <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
+                                style="height:1.5rem;width:1.5rem;">
+                            </button>
+                        </form>
+                      
                     </div> <!-- total budget ends -->
                     <div class="budgetValue blueText">
                         Rs.
@@ -326,43 +339,51 @@
             <h2 style="padding:2%;text-align:center">
                 Your Dream Goals Plan!!
             </h2>
-            
+
             <!--     </div> -->
-            
+
             <% for(let i=0;i<goalList.length;i++){ %>
-            <div class="goalItem">
-                <h2 style="text-align: center;padding: 2%;"> <%= goalList[i].name  %></h2>
+                <div class="goalItem">
+                    <h2 style="text-align: center;padding: 2%;">
+                        <%= goalList[i].name %>
+                    </h2>
 
-                <div class="output-box">
-                    
-                    <div class="left-section">
-                        <!-- <h3 id="goal_meet_per">0.71%</h3> -->
-                        <h3 id="goal_meet_per">  <%= ((_income-_budget+_remainingToSpend)/goalList[i].value) %>% </h3>
-                        <p>of your goal has been met</p>
-                        <p id="you_need_to_invest">You need to invest <span class="calculatedText">444.77 / month
-                            </span></p>
-                    </div>
-                    <!-- leftsection ends  -->
-                    <div class="right-section">
-                        <p><%= goalList[i].name %> Savings Goal : <span class="_calcy calculatedText"
-                                id="retirement_goal_span"><%= goalList[i].value %></span></p>
-                        <!-- <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
+                    <div class="output-box">
+
+                        <div class="left-section">
+                            <!-- <h3 id="goal_meet_per">0.71%</h3> -->
+                            <h3 id="goal_meet_per">
+                                <%= ((_income-_budget+_remainingToSpend)/goalList[i].value) %>%
+                            </h3>
+                            <p>of your goal has been met</p>
+                            <p id="you_need_to_invest">You need to invest <span class="calculatedText">444.77 / month
+                                </span></p>
+                        </div>
+                        <!-- leftsection ends  -->
+                        <div class="right-section">
+                            <p>
+                                <%= goalList[i].name %> Savings Goal : <span class="_calcy calculatedText"
+                                        id="retirement_goal_span">
+                                        <%= goalList[i].value %>
+                                    </span>
+                            </p>
+                            <!-- <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
                         </p> -->
-                        <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">
-                            <%= (goalList[i].value - (_income-_budget+_remainingToSpend)) %>
-                        </span>
-                        </p>
+                            <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">
+                                    <%= (goalList[i].value - (_income-_budget+_remainingToSpend)) %>
+                                </span>
+                            </p>
+                        </div>
+                        <!-- right section ends  -->
                     </div>
-                    <!-- right section ends  -->
+                    <!-- output box ends -->
+
                 </div>
-                <!-- output box ends -->
 
-            </div>
-            
-            <% } %>
-            <!-- goalItem ends -->
+                <% } %>
+                    <!-- goalItem ends -->
 
-            <!-- a class ends -->
+                    <!-- a class ends -->
 
         </div>
         <!-- </div> -->
