@@ -29,6 +29,7 @@ const signUp = async (req, res) => {
     hash_password,
     balance: 0,
     budget: 0,
+    income:0,
     expenditure: 0,
     provisionalBalance: 0,
     remainingToSpend: 0,
