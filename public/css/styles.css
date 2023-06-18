@@ -81,10 +81,8 @@ h2 {
 .box {
   max-width: 25rem;
   margin: 3.125rem auto;
-  /* background: white; */
   border-radius: 0.3125rem;
   border-radius: 25px;
-  box-shadow: 0.3125rem 0.3125rem 0.9375rem -0.3125rem rgba(0, 0, 0, 0.3);
 }
 
 .button{
