@@ -179,12 +179,33 @@ app.post("/delete", async function (req, res) {
 
 /******************************************************************** */
 // "/"+ listName ..
-// adding expenses
+// edititng income
 app.post("/editIncome", async function(req,res){
+  prompt("Enter your new income");
   const newIncome = req.body.income;
   _income = newIncome;
   const bal = {
     "income":newIncome
+  };
+  try {
+    var response = await User.findOneAndUpdate({ _id: _personId }, bal);
+    res.redirect("/homepage");
+  } catch (err) {
+    console.log(err);
+    res.send("error ...");
+  }
+
+})
+// editing budget
+
+
+app.post("/editIncome", async function(req,res){
+  prompt("Enter your new income");
+  const newBudget = req.body.budget;
+  // _income = budget;
+  _budget=newBudget;
+  const bal = {
+    "budget":newBudget
   };
   try {
     var response = await User.findOneAndUpdate({ _id: _personId }, bal);

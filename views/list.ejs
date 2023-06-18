@@ -25,8 +25,9 @@
             <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
             <div>
                 <form action="/toStore" method="post">
-                    <button class="button">
-                        <img src="images/homePage/shoppingBag.png" style="height: 3rem;width: 3rem;" />
+                    <button class="button" class="rmStyles">
+                        <img src="images/homePage/shoppingBag.png"
+                            style="height: 3rem;width: 3rem; border: none;background-color: transparent;" />
                     </button>
                 </form>
             </div>
@@ -43,7 +44,8 @@
                             style="height:2.75rem;width:2.75rem;">
                         Net Disposable Income
                         <!-- <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;"> -->
-
+                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
+                            style="height:1.5rem;width:1.5rem;">
                     </h2>
                 </div> <!--net disposable income heading ends -->
                 <div class="netDisposableIncomeValue headingMoney">
@@ -121,22 +123,23 @@
 
         <div class="third-row gridItem3">
             <div class="grid-container2">
-                <div class="itemB1" >
+                <div class="itemB1">
 
-                <!-- <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);"> -->
+                    <!-- <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);"> -->
                     <div class="totalBudget textSummary">
-                        <img src="images\homePage\budget.png" alt="info" class="infoIcon"
-                            style="height:2rem;width:2rem;">
-                        Total Budget
-                                      
+
+
                         <form>
-                         
-                            <button>
+                            <img src="images\homePage\budget.png" alt="info" class="infoIcon"
+                                style="height:2rem;width:2rem;">
+                            Total Budget
+                            <button class="rmStyles" style="border: none;background-color: transparent;padding: 0;">
                                 <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
-                                style="height:1.5rem;width:1.5rem;">
+                                    style="height:1.75rem;width:1.75rem;">
+                                    <input type="number" name="budget" id="budget" placeholder="Enter Budget" />
                             </button>
                         </form>
-                      
+
                     </div> <!-- total budget ends -->
                     <div class="budgetValue blueText">
                         Rs.

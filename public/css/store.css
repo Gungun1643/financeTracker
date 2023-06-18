@@ -47,7 +47,7 @@ body {
 
 /***********************wallet image********************************************/
 .navBar{
-  margin: 5rem;
+  /* margin: 3rem; */
 }
 .upperBox{
   background-color: #f8eba8;
@@ -208,12 +208,6 @@ hr.horizontalRow {
   width: 5.5rem;
   color: white;
 
-  /* background-image: linear-gradient(
-    to right,
-    #ff4e50 0%,
-    #f9d423 51%,
-    #ff4e50 100%
-  ); */
 }
 .dollarImage {
   margin-left: auto;

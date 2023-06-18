@@ -93,8 +93,11 @@ h2 {
 }
 .button:hover{
   cursor: pointer;
-
 }
+.rmStyles{
+  border: none;background-color: transparent;padding: 0;
+}
+
 #heading {
   /* background-color: rgb(255, 165, 0); */
   text-align: center;
