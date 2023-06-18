@@ -47,12 +47,13 @@ body {
 
 /***********************wallet image********************************************/
 .navBar{
-  margin: 5rem;
+  /* margin: 3rem; */
 }
 .upperBox{
   background-color: #f8eba8;
   padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
 }
 #column1
 {
@@ -90,7 +91,7 @@ body {
   text-decoration: none;
 }
 .columnClass{
-  width: 33%;
+  flex: 33%;
 }
 .walletImg {
  height: 20rem;
@@ -207,12 +208,6 @@ hr.horizontalRow {
   width: 5.5rem;
   color: white;
 
-  /* background-image: linear-gradient(
-    to right,
-    #ff4e50 0%,
-    #f9d423 51%,
-    #ff4e50 100%
-  ); */
 }
 .dollarImage {
   margin-left: auto;

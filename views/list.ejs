@@ -17,14 +17,20 @@
 
 <body>
     <!-- box  -->
-    
+
     <div id="coin-box" class="orangeColorText">
-        Your Coins: 
-        <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;">
-        <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
-        <div>
-            <%= _coins %>
-        </div>
+        <!-- Your Coins:  -->
+        <%= _coins %>
+            <!-- <img src="images\homePage\coin.png" alt="coin" class="infoIcon" style="height:24px;width:24px;"> -->
+            <!-- <a href="https://www.freeiconspng.com/img/3820">Drawing Vector Coin</a> -->
+            <div>
+                <form action="/toStore" method="post">
+                    <button class="button" class="rmStyles">
+                        <img src="images/homePage/shoppingBag.png"
+                            style="height: 3rem;width: 3rem; border: none;background-color: transparent;" />
+                    </button>
+                </form>
+            </div>
 
     </div>
 
@@ -33,13 +39,13 @@
             <!-- net disposable income -->
             <div class="netDisposableIncome div-left">
                 <div class="netDisposableIncomeHeading">
-
                     <h2>
-                        <img src="images\homePage\incm.png" alt="coin" class="infoIcon" style="height:2.75rem;width:2.75rem;">
-
+                        <img src="images\homePage\incm.png" alt="coin" class="infoIcon"
+                            style="height:2.75rem;width:2.75rem;">
                         Net Disposable Income
                         <!-- <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;"> -->
-
+                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
+                            style="height:1.5rem;width:1.5rem;">
                     </h2>
                 </div> <!--net disposable income heading ends -->
                 <div class="netDisposableIncomeValue headingMoney">
@@ -48,6 +54,7 @@
 
                     <p style="text-align: center;">
                         <%= _income %>
+
                     </p>
                 </div> <!--net disposable income value ends -->
             </div> <!--net disposable income ends -->
@@ -58,11 +65,11 @@
             <div class="totalExpenditure div-right">
 
                 <div class="totalExpenditureHeading">
-
                     <h2>
-                        <img src="\images\homePage\expns.png" alt="coin" class="infoIcon" style="height:2.5rem;width:2.5rem;">
-
-                        Total Expenditure </h2>
+                        <img src="\images\homePage\expns.png" alt="coin" class="infoIcon"
+                            style="height:2.5rem;width:2.5rem;">
+                        Total Expenditure
+                    </h2>
                 </div> <!--totalExpenditureHeading ends -->
 
                 <div class="totalExpenditureValue headingMoney">
@@ -77,9 +84,6 @@
         <!-- progress bar starts  -->
 
         <div class="second-row gridItem2">
-
-
-
             <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
             <h2>
                 <%= _dashOffset %>
@@ -89,18 +93,16 @@
 
                 <div class="outer">
                     <div class="inner">
-                     
+
                         <div id="number" style="text-align:center">
                             Remaining To Spent
                         </div> <!-- number ends -->
 
                     </div><!-- inner ends -->
                 </div><!-- outer ends -->
-
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px"
                     class="progress-circle" data-dash-offset="<%= _dashOffset %>">
                     <defs>
-
                         yellow to orange
                         <linearGradient id="GradientColor">
                             <stop offset="0%" stop-color="#F32013" />
@@ -121,11 +123,23 @@
 
         <div class="third-row gridItem3">
             <div class="grid-container2">
-                <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
+                <div class="itemB1">
+
+                    <!-- <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);"> -->
                     <div class="totalBudget textSummary">
-                        <img src="images\homePage\budget.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
-                        Total Budget
-                        <img src="images\homePage\editButton.png" alt="info" class="infoIcon" style="height:16px;width:16px;">
+
+
+                        <form>
+                            <img src="images\homePage\budget.png" alt="info" class="infoIcon"
+                                style="height:2rem;width:2rem;">
+                            Total Budget
+                            <button class="rmStyles" style="border: none;background-color: transparent;padding: 0;">
+                                <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
+                                    style="height:1.75rem;width:1.75rem;">
+                                    <input type="number" name="budget" id="budget" placeholder="Enter Budget" />
+                            </button>
+                        </form>
+
                     </div> <!-- total budget ends -->
                     <div class="budgetValue blueText">
                         Rs.
@@ -157,7 +171,7 @@
 
                 <div class="itemB3">
                     <div class="RemainingToSpent textSummary">
-                        <img src="images\homePage\rts.png" alt="info" class="infoIcon" style="height:1.5rem;width:1.5rem;">
+                        <img src="images\homePage\rts.png" alt="info" class="infoIcon" style="height:2rem;width:2rem;">
 
 
                         RemainingToSpent
@@ -321,55 +335,62 @@
 
 
 
-
-    <div class="shadow container3 ">
+<div class="shadow container3 ">
         <div class="a">
             <!--     <div class="goalsHeading"> -->
             <h2 style="padding:2%;text-align:center">
                 Your Dream Goals Plan!!
             </h2>
-            
+
             <!--     </div> -->
-            
+
             <% for(let i=0;i<goalList.length;i++){ %>
-            <div class="goalItem">
-                <h2 style="text-align: center;padding: 2%;"> <%= goalList[i].name  %></h2>
+                <div class="goalItem">
+                    <h2 style="text-align: center;padding: 2%;">
+                        <%= goalList[i].name %>
+                    </h2>
 
-                <div class="output-box">
-                    
-                    <div class="left-section">
-                        <!-- <h3 id="goal_meet_per">0.71%</h3> -->
-                        <h3 id="goal_meet_per">  <%= ((_income-_budget+_remainingToSpend)/goalList[i].value) %>% </h3>
-                        <p>of your goal has been met</p>
-                        <p id="you_need_to_invest">You need to invest <span class="calculatedText">
-                            <!-- <%= ((goalList[i].value - (_income-_budget+_remainingToSpend))/goalList[i].months) %> -->
-                            44/per month    
-                        </span></p>
-                    </div>
-                    <!-- leftsection ends  -->
-                    <div class="right-section">
-                        <p><%= goalList[i].name %> Savings Goal : <span class="_calcy calculatedText"
-                                id="retirement_goal_span"><%= goalList[i].value %></span></p>
-                        <!-- <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
+                    <div class="output-box">
+
+                        <div class="left-section">
+                            <!-- <h3 id="goal_meet_per">0.71%</h3> -->
+                            <h3 id="goal_meet_per">
+                                <%= ((_income-_budget+_remainingToSpend)/goalList[i].value) %>%
+                            </h3>
+                            <p>of your goal has been met</p>
+                            <p id="you_need_to_invest">You need to invest <span class="calculatedText">444.77 / month
+                                </span></p>
+                        </div>
+                        <!-- leftsection ends  -->
+                        <div class="right-section">
+                            <p>
+                                <%= goalList[i].name %> Savings Goal : <span class="_calcy calculatedText"
+                                        id="retirement_goal_span">
+                                        <%= goalList[i].value %>
+                                    </span>
+                            </p>
+                            <!-- <p>Your Projected Savings : <span class="_calcy calculatedText" id="projected_saving">38</span>
                         </p> -->
-                        <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">
-                            <%= (goalList[i].value - (_income-_budget+_remainingToSpend)) %>
-                        </span>
-                        </p>
+                            <p>You need to save: Rs.<span class="_calcy calculatedText" id="you_need_to_save">
+                                    <%= (goalList[i].value - (_income-_budget+_remainingToSpend)) %>
+                                </span>
+                            </p>
+                        </div>
+                        <!-- right section ends  -->
                     </div>
-                    <!-- right section ends  -->
+                    <!-- output box ends -->
+
                 </div>
-                <!-- output box ends -->
 
-            </div>
-            
-            <% } %>
-            <!-- goalItem ends -->
+                <% } %>
+                    <!-- goalItem ends -->
 
-            <!-- a class ends -->
+                    <!-- a class ends -->
 
         </div>
         <!-- </div> -->
+        
+        
         <div class="b">
             <div class="bHeading">
                 <h2 class="orangeColorText" id="goalClass" style="padding:2%">
@@ -378,7 +399,7 @@
             </div>
             <!-- bHeading ends -->
             <div class="firstClass">
-                add Goal
+                <!-- add Goal -->
                 <form action="/addGoal" method="post">
                     <div class="container3B">
                         <!-- container3bItem1 ends -->
@@ -408,6 +429,7 @@
                         <button type="submit" name="goal" id="addGoalBtn">+</button>
                     </div>
                 </form>
+
             </div>
             <div class="secondClass">
 
@@ -474,6 +496,9 @@
 
         /* */
 
+        // function hrefFunction(){
+        //     windows.location.href = "/store";
+        // }
     </script>
 
 
