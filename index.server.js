@@ -249,15 +249,15 @@ app.post("/", async function (req, res) {
     remainingToSpend: _remainingToSpend,
   };
   /***************change the css of the circle ***************************** */
-  console.log("****************************** ");
-  console.log("expenditure: " + _expenditure);
-  console.log("remaingToSpent: " + _remainingToSpend);
+  // console.log("****************************** ");
+  // console.log("expenditure: " + _expenditure);
+  // console.log("remaingToSpent: " + _remainingToSpend);
   const per = (_remainingToSpend / _budget) * 100;
-  console.log("precentage is : " + per);
+  // console.log("precentage is : " + per);
   const newDashArray = (per * 472) / 100;
-  console.log("newDashArray is : " + newDashArray);
+  // console.log("newDashArray is : " + newDashArray);
   const newDashOffset = 472 - newDashArray;
-  console.log("newDashOffset is : " + newDashOffset);
+  // console.log("newDashOffset is : " + newDashOffset);
 
   // var element = document.getElementsByClassName("circle");
   // console.log("element is : "+element);
