@@ -52,9 +52,9 @@ button {
 /*  */
 padding: 0.625rem;
 
-  background: hsla(20, 88%, 51%, 1);
+  background:#FF6700;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     45deg,
     hsla(20, 88%, 51%, 1) 20%,
     hsla(28, 100%, 57%, 1) 47%,
@@ -63,9 +63,9 @@ padding: 0.625rem;
     hsla(36, 75%, 77%, 1) 100%,
     hsla(36, 75%, 77%, 1) 100%,
     hsla(33, 94%, 54%, 1) 100%
-  );
+  ); */
 
-  background: -moz-linear-gradient(
+  /* background: -moz-linear-gradient(
     45deg,
     hsla(20, 88%, 51%, 1) 20%,
     hsla(28, 100%, 57%, 1) 47%,
@@ -74,21 +74,12 @@ padding: 0.625rem;
     hsla(36, 75%, 77%, 1) 100%,
     hsla(36, 75%, 77%, 1) 100%,
     hsla(33, 94%, 54%, 1) 100%
-  );
+  ); */
 
-  background: -webkit-linear-gradient(
-    45deg,
-    hsla(20, 88%, 51%, 1) 20%,
-    hsla(28, 100%, 57%, 1) 47%,
-    hsla(58, 100%, 63%, 1) 87%,
-    hsla(29, 92%, 52%, 1) 100%,
-    hsla(36, 75%, 77%, 1) 100%,
-    hsla(36, 75%, 77%, 1) 100%,
-    hsla(33, 94%, 54%, 1) 100%
-  );
+  /* background:    hsla(58, 100%, 63%, 1) 87%; */
+   
+ 
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F05E16", endColorstr="#FF8822", GradientType=1 );
-	 /*  */
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -96,8 +87,11 @@ padding: 0.625rem;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+} 
+img{
+	height: 1rem;
+	width: 1rem;
 }
-
 
 button:active {
 	transform: scale(0.95);
@@ -119,7 +113,7 @@ form {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 50px;
+	padding: 0 3.125rem;
 	height: 100%;
 	text-align: center;
 }
@@ -127,21 +121,22 @@ form {
 input {
 	background-color: #eee;
 	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
+	padding: 0.75rem 0.9375px;
+	margin: 0.5rem 0;
 	width: 100%;
 }
 
 .container {
-	background-color: #fff;
+	/* background-color: #c26767; */
+	background-color: #FF6700;
 	border-radius: 0.5rem;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 48rem;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 30rem;
 }
 
 .form-container {
@@ -206,10 +201,12 @@ input {
 	/* background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
 	background: linear-gradient(to right, #FF4B2B, #FF416C); */
-	background: rgb(255,255,255);
-	background: linear-gradient(100deg, rgba(255,255,255,1) 0%, rgba(254,174,44,1) 0%, rgba(254,80,65,1) 0%, rgba(254,65,67,1) 0%, rgba(254,84,64,1) 45%, rgba(254,87,63,1) 83%, rgba(254,192,44,1) 95%, rgba(254,192,44,1) 98%);
+	/* background: rgb(223, 134, 93); */
+
+	/* background: linear-gradient(100deg, rgba(255,255,255,1) 0%, rgba(254,174,44,1) 0%, rgba(254,80,65,1) 0%, rgba(254,65,67,1) 0%, rgba(254,84,64,1) 45%, rgba(254,87,63,1) 83%, rgba(254,192,44,1) 95%, rgba(254,192,44,1) 98%); */
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-color:#FF6700;
 	background-position: 0 0;
 	color: #FFFFFF;
 	position: relative;
@@ -230,7 +227,7 @@ input {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 40px;
+	padding: 0 2.5rem;
 	text-align: center;
 	top: 0;
 	height: 100%;
@@ -257,24 +254,24 @@ input {
 }
 
 .social-container {
-	margin: 20px 0;
+	margin: 1.25rem 0;
 }
 
 .social-container a {
-	border: 1px solid #DDDDDD;
+	border: 0.0625rem solid #DDDDDD;
 	border-radius: 50%;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
+	margin: 0 0.3125rem;
+	height: 2.5rem;
+	width: 2.5rem;
 }
 
 footer {
     background-color: #222;
     color: #fff;
-    font-size: 14px;
+    font-size: 0.875rem;
     bottom: 0;
     position: fixed;
     left: 0;
@@ -284,7 +281,7 @@ footer {
 }
 
 footer p {
-    margin: 10px 0;
+    margin: 0.625rem 0;
 }
 
 footer i {

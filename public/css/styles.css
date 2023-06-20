@@ -20,7 +20,6 @@
     box-shadow: 0 0 1.25rem #eee;
     border-radius: 0.625rem;
     display: block;
-
 }
 /* .orangeColorText {
   padding: 0.625rem;
@@ -63,6 +62,9 @@
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F05E16", endColorstr="#FF8822", GradientType=1 );
 } */
 /**/
+#pd{
+  color: var(--fs-blueColor);
+}
 html {
   background-color: #e4e9fd;
   min-height: 62.5rem;
@@ -270,6 +272,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 0.3125rem 0.9375rem;
   box-sizing: content-box;
   border: 1rem;
+  border-radius: 1rem;
   padding: 4rem;
   margin: 2rem;
 }

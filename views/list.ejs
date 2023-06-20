@@ -4,13 +4,11 @@
     <title>Finance Tracker</title>
     <link rel="stylesheet" href="css\styles.css">
     <%- include("header") -%>
-        <div>
+        <div >
             <link rel="stylesheet" href="css\styles.css">
         </div>
-   
-        
-   
-        <div class="box" id="heading">
+
+        <div class="box" id="heading" >
             <h1 class="orangeColorText">
                 <%= listTitle %>
             </h1>
@@ -36,7 +34,7 @@
             </div>
     </div>
 
-    <div class="shadow grid-container">
+    <div class="shadow grid-container" id="homeBox" >
         <div class="first-row gridItem1">
             <!-- net disposable income -->
             <div class="netDisposableIncome div-left">
@@ -47,7 +45,7 @@
                         Net Disposable Income
                         <!-- <img src="images\editButton.png" alt="info" class="infoIcon" style="height:20px;width:20px;"> -->
                         <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
-                            style="height:1.5rem;width:1.5rem;">
+                            style="height:1.5rem;width:1.5rem;" id="editNetDisposableIncome">
                     </h2>
                 </div> <!--net disposable income heading ends -->
                 <div class="netDisposableIncomeValue headingMoney">
@@ -81,7 +79,6 @@
 
             </div> <!--totalExpenditure ends -->
         </div>
-
         <!-- progress bar starts  -->
 
         <div class="second-row gridItem2">
@@ -125,11 +122,8 @@
         <div class="third-row gridItem3">
             <div class="grid-container2">
                 <div class="itemB1">
-
                     <!-- <div class="itemB1" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);"> -->
                     <div class="totalBudget textSummary">
-
-
                         <form>
                             <img src="images\homePage\budget.png" alt="info" class="infoIcon"
                                 style="height:2rem;width:2rem;">
@@ -137,7 +131,6 @@
                             <button class="rmStyles" style="border: none;background-color: transparent;padding: 0;">
                                 <img src="images\homePage\editButton.png" alt="info" class="infoIcon"
                                     style="height:1.75rem;width:1.75rem;">
-                                    <input type="number" name="budget" id="budget" placeholder="Enter Budget" />
                             </button>
                         </form>
 
@@ -155,15 +148,25 @@
 
 
                 <!---------------------------------------------------------------------------------------------------------------->
-                <div class="itemB2" onclick="var budgetAmount = getBudgetAmount(); displayBudgetAmount(budgetAmount);">
+                <div class="itemB2" >
+                            
+                    <div class="hello">
+                        <div class="ProvisionalBalance textSummary">
+                            <a href="#whatIsProvisionalBalance" style="text-decoration: none;color: black;">
+                                <img src="images\homePage\info.png" alt="info" class="infoIcon" style="height:1.75rem;width:1.75rem;" >
+                                Provisional Balance
+                            </a>
+                           
+                                <div class="modalContainer" id="#whatIsProvisionalBalance">
+                                </div>
+                        </div> <!-- ProvisionalBalance  ends -->
+                        <div class="ProvisionalBalanceValue blueText" >
+                            Rs. <%= _provisionalBalance %>
+                        </div><!--  ProvisionalBalanceValue ends -->
+    
 
-                    <div class="ProvisionalBalance textSummary">
-                        ProvisionalBalance
-                    </div> <!-- ProvisionalBalance  ends -->
-                    <div class="ProvisionalBalanceValue blueText">
-                        Rs. <%= _provisionalBalance %>
-                    </div><!--  ProvisionalBalanceValue ends -->
-
+                    </div>
+                   
                 </div>
                 <!-- itemB2 ends -->
 
@@ -173,8 +176,6 @@
                 <div class="itemB3">
                     <div class="RemainingToSpent textSummary">
                         <img src="images\homePage\rts.png" alt="info" class="infoIcon" style="height:2rem;width:2rem;">
-
-
                         RemainingToSpent
                     </div> <!-- RemainingToSpent  ends -->
                     <div class="RemainToSpentValue blueText">
@@ -197,7 +198,7 @@
 
     </div> -->
 
-    <div class="shadow">
+    <div class="shadow" id="transactionBox">
         <!-- ahiya avse database  -->
         <div class="ExpenseListHeading">
             <!-- contenteditable="true" -->
@@ -205,7 +206,7 @@
             </h2>
         </div>
 
-        <div class="expenseContainer">
+        <div class="expenseContainer" >
 
             <!-- display the pehla na expenses -->
             <!-- this route is for deleting the items  -->
@@ -257,7 +258,7 @@
             </div>
             <!-- expense container item 1 -->
             <!----------------------------------------------------------------------------------------------------------------------------------- -->
-            <div class="expenseContainerItem2">
+            <div class="expenseContainerItem2"  >
                 <!-- graph representing the total expenses -->
                 <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga optio, earum eaque odio assumenda libero officia laboriosam voluptatibus ducimus. Quod nam temporibus unde quo harum impedit, excepturi nobis consectetur laborum. Suscipit totam error temporibus est. Soluta necessitatibus porro, eaque sunt, modi autem cum quas omnis dolore maxime sit libero non ratione nesciunt ea excepturi veritatis inventore, accusamus sapiente sequi velit nam nulla aliquid a! Consequuntur nostrum rerum totam repellat magnam corporis iure, dolores reiciendis sunt ratione commodi. Cum quisquam sequi amet quos corporis quaerat, exercitationem nesciunt perspiciatis saepe ducimus dicta ea accusantium dolorem eos deserunt impedit harum facilis officia numquam eum incidunt in at. Nobis consectetur repellat dolore delectus at debitis qui doloribus dolorem iste explicabo hic, facere architecto culpa eius aut soluta provident illo quaerat maxime cupiditate error illum pariatur modi ipsum. Voluptatibus molestias esse sequi unde beatae animi quisquam at fuga fugiat, libero sunt hic provident cumque vero! Accusamus ex sequi architecto quae quisquam. Non expedita at, suscipit voluptatem totam tenetur incidunt nisi corrupti possimus repellendus magni distinctio! Deleniti similique odio quia porro corrupti earum perferendis animi atque ad molestias accusantium repudiandae facilis autem veniam voluptatibus eaque maxime expedita reiciendis fugit minima aperiam, natus aut soluta. Sit, error magni quia quam assumenda hic earum labore nihil, explicabo porro itaque, magnam quos reprehenderit perspiciatis vero ea fugiat quisquam. Iure voluptate voluptates quis eum aliquam exercitationem illo, inventore, doloremque id tempore aperiam, facilis consequuntur nobis delectus libero vero ut esse! Cum saepe praesentium ratione deserunt iusto esse voluptates quas accusantium perferendis porro aspernatur quaerat nobis, dignissimos vero dolorem, quam repellendus atque beatae ea voluptatibus ipsam! Quia cupiditate amet doloribus blanditiis, incidunt quisquam tempore debitis suscipit, nesciunt eveniet itaque, modi fuga magnam porro possimus. Corporis amet quaerat est, earum quasi, excepturi debitis consectetur pariatur voluptatibus accusantium qui maiores itaque saepe dolor doloremque veritatis libero voluptate possimus distinctio, aperiam voluptates velit. Aperiam aspernatur doloribus cupiditate dolor, molestiae tenetur quibusdam libero est neque omnis deserunt similique delectus iste incidunt nihil dicta dignissimos laudantium. Nobis asperiores iste ad in quia nesciunt placeat eum iure laborum modi quasi autem earum consequatur exercitationem quae dolores, iusto, itaque quos commodi facilis sed ex, quis quam. Aperiam est beatae illum nostrum. Accusamus, accusantium? Sed nihil temporibus quas adipisci voluptas nulla? Veniam sed, accusamus perspiciatis illo quaerat dolore omnis, alias odit sequi unde delectus dicta voluptatibus ab est. Ullam assumenda, nisi delectus perferendis officiis veniam quod sit vel vitae! -->
             </div>
@@ -276,7 +277,7 @@
     </div><!-- shadow ends -->
 
     <!-- to show the items  -->
-    <div class="shadow">
+    <div class="shadow" >
         <div class="cont ">
 
             <div class="leftMost  box">
@@ -336,7 +337,7 @@
 
 
 
-<div class="shadow container3 ">
+<div class="shadow container3 "  id="goalBox">
         <div class="a">
             <!--     <div class="goalsHeading"> -->
             <h2 style="padding:2%;text-align:center">
@@ -399,7 +400,7 @@
                 </h2>
             </div>
             <!-- bHeading ends -->
-            <div class="firstClass">
+            <div class="firstClass" >
                 <!-- add Goal -->
                 <form action="/addGoal" method="post">
                     <div class="container3B">
@@ -445,17 +446,19 @@
 
 
     <script>
+        const addPrvsnlIncm=document.getElementById('editNetDisposableIncome');
+              console.log("heellllllllllo");
 
-        function getBudgetAmount() {
-            var budgetAmount = 0;
-            budgetAmount = prompt("Please Enter your Budget Amount");
-            // budgetAmount = document.getElementById("budgetAmount").value;
-            return budgetAmount;
-        }
-        function displayBudgetAmount(budgetAmount) {
-            var displayElement = document.getElementById("budgetAmountDisplay");
-            displayElement.textContent = budgetAmount;
-        }
+        // function getBudgetAmount() {
+        //     var budgetAmount = 0;
+        //     budgetAmount = prompt("Please Enter your Budget Amount");
+        //     // budgetAmount = document.getElementById("budgetAmount").value;
+        //     return budgetAmount;
+        // }
+        // function displayBudgetAmount(budgetAmount) {
+        //     var displayElement = document.getElementById("budgetAmountDisplay");
+        //     displayElement.textContent = budgetAmount;
+        // }
 
 
         // <script> -->

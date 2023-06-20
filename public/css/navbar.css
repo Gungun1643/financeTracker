@@ -1,0 +1,42 @@
+nav {
+  position: relative;
+  /* position: static; */
+}
+.containerNavBar {
+  display: flex;
+  height: 7rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0.3125rem 0.9375rem;
+  flex-wrap: flex;
+  /* padding: auto; */
+  width: fit-content;
+  height: 5rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    to right,
+    #ff4e50 0%,
+    #f9d423 51%,
+    #ff4e50 100%
+  );
+  margin: auto;
+  text-decoration: none;
+}
+
+img {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-bottom: 0.25rem;
+}
+.options {
+  font-size: 1.5rem;
+  margin: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  width: 5.5rem;
+
+  color: white;
+  /* text-transform: uppercase; */
+  text-decoration: none;
+}
+.containerNavBar .options:hover img {
+  transform: translateY(-2.5rem);
+}
