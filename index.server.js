@@ -53,6 +53,11 @@ global._coins = 400;
 //   remainingToSpend: Number,
 // });
 
+/*edit the items */
+
+
+
+
 /* store temp get method  */
 app.post("/toStore", async function (req, res) {
   try {

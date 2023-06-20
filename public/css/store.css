@@ -46,10 +46,11 @@ body {
 }
 
 /***********************wallet image********************************************/
-.navBar{
-  /* margin: 3rem; */
-}
+/* .navBar{
+   margin: 3rem; 
+} */
 .upperBox{
+
   background-color: #f8eba8;
   padding: 2rem;
   display: flex;
