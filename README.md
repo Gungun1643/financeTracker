@@ -4,7 +4,7 @@
 
 This project is made by @gungun1643 and @ash97531
 
-[![Video Name]()](https://www.youtube.com/watch?v=aApXRJO1CT4)
+[![Video Name](https://github.com/Gungun1643/financeTracker/blob/main/public/images/storePage/wallet2.png)](https://www.youtube.com/watch?v=aApXRJO1CT4)
 
 
 **Project Description**
